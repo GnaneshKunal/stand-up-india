@@ -10,7 +10,7 @@ import StandUpIndia from './lib/model';
 
 const PORT: string | number = process.env.port || 8080;
 
-let url: String = 'mongodb://localhost:27017/standup';
+let url: String = process.env.MONGO_URI || 'mongodb://localhost:27017/standup';
 
 mongoose.connect(<string>url, (err: mongoose.Error) => {
     if (err) {
