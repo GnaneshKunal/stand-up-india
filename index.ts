@@ -36,7 +36,6 @@ class App {
 
         StandUpIndiaRouter.get('/search', (req: express.Request, res: express.Response) => {
             const query = req.query.q;
-            console.log(query);
             if (!query) {
                 return res.status(400).send({
                     data: 'Please specify query'
@@ -59,13 +58,14 @@ class App {
 
         StandUpIndiaRouter.get('/doc', (req: express.Request, res: express.Response) => {
             const appID = req.query.id;
-            console.log(appID);
             if (!appID)
                 return res.status(400).send({
                     data: 'Please specify an id'
                 });
 
-            StandUpIndia.find({ 'Application No': appID }, (err: Error, doc: any) => {
+            StandUpIndia.find({ 'Application No': appID })
+                .select({ 's': 0, '_id': 0 })
+                .exec((err: Error, doc: any) => {
                 if (err)
                     return res.status(500).send({
                         data: 'Something went wrong'
