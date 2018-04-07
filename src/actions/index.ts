@@ -5,7 +5,8 @@ import {
     GET_DOC
 } from './types';
 
-const ROOT_URL = 'http://localhost:8080';
+//const ROOT_URL = 'http://localhost:8080';
+const ROOT_URL = 'https://standupindia.herokuapp.com';
 
 export function getDocs(search: { search: string }) {
     return function(dispatch: any) {
