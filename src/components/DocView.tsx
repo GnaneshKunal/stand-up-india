@@ -46,10 +46,10 @@ class DocView extends React.Component<IDocViewProps, {}> {
     makeHeader(): JSX.Element {
         return (
             <div>
-                <center>
+                <div className="text-center">
                     <h1>Chittoor District Andhra Pradesh</h1>
                     <hr />
-                </center>
+                </div>
             </div>
         );
     }
@@ -59,7 +59,7 @@ class DocView extends React.Component<IDocViewProps, {}> {
         return (
             <div>
                 {this.makeHeader()}
-                <center> PRAHARI INDUSTRIES Success Story </center>
+                <div className="text-center" > PRAHARI INDUSTRIES Success Story </div>
                 <br />
                 <table className="table table-bordered">
                     <tbody>
@@ -77,13 +77,13 @@ class DocView extends React.Component<IDocViewProps, {}> {
                                             <td>{v.toString()}</td>
                                             <td>{value}</td>
                                         </tr>
-                                        );
+                                    );
                                 }
                             })
                         }
                     </tbody>
                 </table>
-                <center>Interview Done by : Microsmartware Pvt. Ltd’ s zTeam </center>
+                <div className="text-center" >Interview Done by : Microsmartware Pvt. Ltd’ s zTeam </div>
             </div>
         );
     }
