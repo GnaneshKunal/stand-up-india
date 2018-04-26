@@ -66,14 +66,14 @@ class App {
             StandUpIndia.find({ 'Application No': appID })
                 .select({ 's': 0, '_id': 0 })
                 .exec((err: Error, doc: any) => {
-                if (err)
-                    return res.status(500).send({
-                        data: 'Something went wrong'
+                    if (err)
+                        return res.status(500).send({
+                            data: 'Something went wrong'
+                        });
+                    return res.status(200).send({
+                        data: doc
                     });
-                return res.status(200).send({
-                    data: doc
                 });
-            });
         });
 
         return StandUpIndiaRouter;
@@ -82,8 +82,8 @@ class App {
     private mountRoutes(): void {
         const router: express.Router = express.Router();
         this.express.use(express.static('.'));
-        router.get(['/', '/doc'], (_, res: express.Response) => {
-            return res.sendFile(path.join( __dirname + '/../', 'index.html'));
+        router.get(['/', '/doc', '/search'], (_, res: express.Response) => {
+            return res.sendFile(path.join(__dirname + '/../', 'index.html'));
         });
         this.express.use('/', router);
         this.express.use('/api', this.StandUpIndiaRouter());
@@ -97,7 +97,7 @@ server.listen(PORT, (err: Error): void | never => {
     if (err) {
         throw err;
     }
-    /* tslint:disable */ 
+    /* tslint:disable */
     return console.log('Server listening on PORT: ' + PORT);
     /* tslint:enable */
 });
