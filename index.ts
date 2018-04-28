@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as http from 'http';
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
+import * as cors from 'cors';
 
 dotenv.config();
 
@@ -81,6 +82,7 @@ class App {
 
     private mountRoutes(): void {
         const router: express.Router = express.Router();
+        this.express.use(cors());
         this.express.use(express.static('.'));
         router.get(['/', '/doc', '/search'], (_, res: express.Response) => {
             return res.sendFile(path.join(__dirname + '/../', 'index.html'));

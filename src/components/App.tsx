@@ -7,7 +7,7 @@ import DocView from './DocView';
 
 const App = (): JSX.Element => (
     <div>
-        {/*<Header />*/}
+        <Header />
         <main>
             <Switch>
                 <Route exact path='/' component={HomePage} />

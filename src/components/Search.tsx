@@ -83,25 +83,25 @@ class Search extends React.Component<ISearchProps, ISearchState> {
 
     renderForm(): JSX.Element {
         return (
-            <div className="container" style={{"margin-left": "30%", "margin-top": "20%"}}>
+            <div className="container" style={{ "margin-left": "30%", "margin-top": "20%" }}>
                 <div className="row clearfix">
                     <div className="col-md-12 column">
                         <div className="col-md-6 col-md-offset-3 column">
                             <form role="form" onSubmit={this.onFormSubmit.bind(this)}>
                                 <div className="form-group">
-                                    <label className="h1" style={{"padding-left": "30%"}}>Search Application</label>
-                                    <input type="text" 
-                                           name="search" className="form-control text-center"
-                                           value={this.state.search}
-                                           placeholder="Search Applications"
-                                           onChange={event => {
-                                                   this.onChangeSearchHandler(event);
-                                           }}
+                                    <label className="h1" style={{ "padding-left": "30%" }}>Search Application</label>
+                                    <input type="text"
+                                        name="search" className="form-control text-center"
+                                        value={this.state.search}
+                                        placeholder="Search Applications"
+                                        onChange={event => {
+                                            this.onChangeSearchHandler(event);
+                                        }}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <div className="col-md-6 text-center"> 
-                                        <button id="singlebutton" style={{"padding": "10px 92% 10px 92% ", "text-align": "center"}} className="btn btn-primary">Search</button> 
+                                    <div className="col-md-6 text-center">
+                                        <button id="singlebutton" style={{ "padding": "10px 92% 10px 92% ", "text-align": "center" }} className="btn btn-primary">Search</button>
                                     </div>
                                 </div>
                             </form>
@@ -118,7 +118,7 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     public render(): JSX.Element {
         return (
             <div>
-            {this.renderForm()}
+                {this.renderForm()}
             </div>
         );
     }
