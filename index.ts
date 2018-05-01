@@ -5,13 +5,15 @@ import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 import * as cors from 'cors';
 
+import * as fs from 'fs';
+
 dotenv.config();
 
 import StandUpIndia from './lib/model';
 
 const PORT: string | number = process.env.PORT || 8080;
 
-let url: String = process.env.MONGO_URI || 'mongodb://localhost:27017/standup';
+const url: string = process.env.MONGO_URI || 'mongodb://localhost:27017/standup';
 
 mongoose.connect(<string>url, (err: mongoose.Error) => {
     if (err) {
@@ -33,7 +35,7 @@ class App {
     }
 
     StandUpIndiaRouter() {
-        const StandUpIndiaRouter = express.Router()
+        const StandUpIndiaRouter = express.Router();
 
         StandUpIndiaRouter.get('/search', (req: express.Request, res: express.Response) => {
             const query = req.query.q;
@@ -77,6 +79,18 @@ class App {
                 });
         });
 
+	StandUpIndiaRouter.get('/success-pics', (_, res: express.Response) => {
+	    fs.readdir('./img/success', (err: Error, pics: Array<string>) => {
+		if (err)
+		    return res.status(500).send({
+			data: 'Something went wrong'
+		    });
+		return res.status(200).send({
+		    data: pics
+		});
+	    });    
+	});
+	
         return StandUpIndiaRouter;
     }
 

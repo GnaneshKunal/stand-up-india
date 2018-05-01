@@ -2,11 +2,12 @@ import axios from 'axios';
 
 import {
     SEARCH_DOC,
-    GET_DOC
+    GET_DOC,
+    SUCCESS_PICS
 } from './types';
 
-//const ROOT_URL = 'http://localhost:8080';
-const ROOT_URL = 'https://standupindia.herokuapp.com';
+const ROOT_URL = 'http://localhost:8080';
+//const ROOT_URL = 'https://standupindia.herokuapp.com';
 
 export function getDocs(search: { search: string }) {
     return function(dispatch: any) {
@@ -36,5 +37,20 @@ export function getDoc(docID: string) {
             .catch(err => {
                 console.log(err);
             });
+    }
+}
+
+export function getSuccessPics() {
+    return function(dispatch: any) {
+	return axios.get(`${ROOT_URL}/api/success-pics`)
+	    .then(response => {
+		dispatch({
+		    type: SUCCESS_PICS,
+		    payload: response.data.data
+		});
+	    })
+	    .catch(err => {
+		console.log(err);
+	    });
     }
 }

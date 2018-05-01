@@ -13,8 +13,8 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                     <header className="masthead">
                         <div className="container">
                             <div className="intro-text">
-                                <div className="intro-lead-in"><span style={{ color: 'white', backgroundColor: 'black' }}>Welcome To StandUp India Loans!</span></div>
-                                <div className="intro-heading text-uppercase"><span style={{ color: 'black', backgroundColor: 'yellow' }}>Comming Soon</span></div>
+                                <div className="intro-lead-in"><span>Welcome To StandUp India Loans!</span></div>
+                                <div className="intro-heading text-uppercase"><span>Comming Soon</span></div>
                                 <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Comming Soon</a>
                             </div>
                         </div>
@@ -69,13 +69,13 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                         </ol>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img className="d-block w-100" src="img/success/1.jpeg" style={{ height: 800 }} alt="First slide" />
+                                <img className="d-block w-100" src="img/success/2018-04-30-PHOTO-00000284.jpg" style={{ height: 800 }} alt="First slide" />
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block w-100" src="img/success/2.jpeg" style={{ height: 800 }} alt="Second slide" />
+                                <img className="d-block w-100" src="img/success/2018-04-30-PHOTO-00000287.jpg" style={{ height: 800 }} alt="Second slide" />
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block w-100" src="img/success/3.jpeg" style={{ height: 800 }} alt="Third slide" />
+                                <img className="d-block w-100" src="img/success/2018-04-30-PHOTO-00000288.jpg" style={{ height: 800 }} alt="Third slide" />
                             </div>
                         </div>
                         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -94,7 +94,7 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                             <div className="row">
                                 <div className="col-lg-12 text-center">
                                     <h2 className="section-heading text-uppercase">About</h2>
-                                    <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                                    <h3 className="section-subheading text-muted">Our Journey</h3>
                                 </div>
                             </div>
                             <div className="row">
@@ -175,7 +175,7 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                             <div className="row">
                                 <div className="col-lg-12 text-center">
                                     <h2 className="section-heading text-uppercase">Our Amazing Team</h2>
-                                    <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                                    <h3 className="section-subheading text-muted">Something about the tea</h3>
                                 </div>
                             </div>
                             <div className="row">
@@ -206,7 +206,7 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                                 <div className="col-sm-4">
                                     <div className="team-member">
                                         <img className="mx-auto rounded-circle" src="img/team/2.jpg" alt="" />
-                                        <h4>Larry Parker</h4>
+                                        <h4>David Brainard</h4>
                                         <p className="text-muted">Lead Marketer</p>
                                         <ul className="list-inline social-buttons">
                                             <li className="list-inline-item">
