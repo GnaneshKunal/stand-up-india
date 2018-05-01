@@ -8,39 +8,8 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
         return (
             <div>
                 <div id="page-top">
-                    {/*Navigation*/}
-                    {/* <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-                        <div className="container">
-                        <a className="navbar-brand js-scroll-trigger" href="#page-top">StandUp India Loans</a>
-                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-			<i className="fa fa-bars"></i>
-                        </button>
+                    {/* Header */}
 
-                        <div className="collapse navbar-collapse" id="navbarResponsive">
-                        <ul className="navbar-nav text-uppercase ml-auto">
-                        <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#services">Services</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#about">About</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#team">Team</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                        </li>
-                        </ul>
-                        </div>
-
-                        </div>
-			</nav> */}
-
-                    {/*Header*/}
                     <header className="masthead">
                         <div className="container">
                             <div className="intro-text">
@@ -90,103 +59,35 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                         </div>
                     </section>
 
-                    {/*Portfolio Grid*/}
-                    <section className="bg-light" id="portfolio">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12 text-center">
-                                    <h2 className="section-heading text-uppercase">Portfolio</h2>
-                                    <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                                </div>
+                    {/* carousel */}
+
+                    <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+                        <ol className="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img className="d-block w-100" src="img/success/1.jpeg" style={{ height: 800 }} alt="First slide" />
                             </div>
-                            <div className="row">
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Threads</h4>
-                                        <p className="text-muted">Illustration</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Explore</h4>
-                                        <p className="text-muted">Graphic Design</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Finish</h4>
-                                        <p className="text-muted">Identity</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Lines</h4>
-                                        <p className="text-muted">Branding</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Southwest</h4>
-                                        <p className="text-muted">Website Design</p>
-                                    </div>
-                                </div>
-                                <div className="col-md-4 col-sm-6 portfolio-item">
-                                    <a className="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                                        <div className="portfolio-hover">
-                                            <div className="portfolio-hover-content">
-                                                <i className="fa fa-plus fa-3x"></i>
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div className="portfolio-caption">
-                                        <h4>Window</h4>
-                                        <p className="text-muted">Photography</p>
-                                    </div>
-                                </div>
+                            <div className="carousel-item">
+                                <img className="d-block w-100" src="img/success/2.jpeg" style={{ height: 800 }} alt="Second slide" />
+                            </div>
+                            <div className="carousel-item">
+                                <img className="d-block w-100" src="img/success/3.jpeg" style={{ height: 800 }} alt="Third slide" />
                             </div>
                         </div>
-                    </section>
+                        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
+                        </a>
+                        <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
+                        </a>
+                    </div>
+
                     {/* About */}
                     <section id="about">
                         <div className="container">
@@ -471,7 +372,6 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                             </div>
                         </div>
                     </footer>
-
                     {/*Portfolio Modals */}
 
                     {/* Modal 1 */}

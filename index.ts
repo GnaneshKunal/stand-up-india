@@ -84,7 +84,7 @@ class App {
         const router: express.Router = express.Router();
         this.express.use(cors());
         this.express.use(express.static('.'));
-        router.get(['/', '/doc', '/search'], (_, res: express.Response) => {
+        router.get(['/', '/doc', '/search', '/success-stories'], (_, res: express.Response) => {
             return res.sendFile(path.join(__dirname + '/../', 'index.html'));
         });
         this.express.use('/', router);
