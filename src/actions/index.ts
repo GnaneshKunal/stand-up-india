@@ -6,8 +6,7 @@ import {
     SUCCESS_PICS
 } from './types';
 
-const ROOT_URL = process.env.URL || 'http://localhost:8080';
-
+const ROOT_URL = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
 
 export function getDocs(search: { search: string }) {
     return function(dispatch: any) {
