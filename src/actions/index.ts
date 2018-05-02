@@ -6,8 +6,8 @@ import {
     SUCCESS_PICS
 } from './types';
 
-const ROOT_URL = 'http://localhost:8080';
-//const ROOT_URL = 'https://standupindia.herokuapp.com';
+const ROOT_URL = process.env.URL || 'http://localhost:8080';
+
 
 export function getDocs(search: { search: string }) {
     return function(dispatch: any) {
@@ -42,15 +42,15 @@ export function getDoc(docID: string) {
 
 export function getSuccessPics() {
     return function(dispatch: any) {
-	return axios.get(`${ROOT_URL}/api/success-pics`)
-	    .then(response => {
-		dispatch({
-		    type: SUCCESS_PICS,
-		    payload: response.data.data
-		});
-	    })
-	    .catch(err => {
-		console.log(err);
-	    });
+        return axios.get(`${ROOT_URL}/api/success-pics`)
+            .then(response => {
+                dispatch({
+                    type: SUCCESS_PICS,
+                    payload: response.data.data
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 }
