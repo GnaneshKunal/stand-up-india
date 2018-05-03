@@ -1,6 +1,31 @@
 import * as React from 'react';
 
-export default class ContactForm extends React.Component<{}, {}> {
+interface IContactFormState {
+    name: string,
+    phone: string,
+    email: string,
+    message: string
+}
+
+export default class ContactForm extends React.Component<{}, IContactFormState> {
+
+    constructor(props: any) {
+        super(props);
+
+        this.state = {
+            name: '',
+            phone: '',
+            email: '',
+            message: ''
+        };
+
+    }
+
+    onFormSubmit(event: any) {
+        event.preventDefault();
+        console.log(this.state);
+    }
+
     public render(): JSX.Element {
         return (
             <section id="contact">
@@ -13,25 +38,46 @@ export default class ContactForm extends React.Component<{}, {}> {
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
-                            <form id="contactForm" name="sentMessage">
+                            <form id="contactForm" name="sentMessage" onSubmit={this.onFormSubmit.bind(this)}>
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input className="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name." />
+                                            <input className="form-control" id="name" name="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name."
+                                                value={this.state.name}
+                                                onChange={event => {
+                                                    this.setState({ name: event.target.value })
+                                                }}
+                                            />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                         <div className="form-group">
-                                            <input className="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address." />
+                                            <input className="form-control" id="email" type="email" name="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address."
+                                                value={this.state.email}
+                                                onChange={event => {
+                                                    this.setState({ email: event.target.value })
+                                                }}
+                                            />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                         <div className="form-group">
-                                            <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number." />
+                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number."
+                                                value={this.state.phone}
+                                                onChange={event => {
+                                                    this.setState({ phone: event.target.value })
+                                                }}
+
+                                            />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <textarea className="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                                            <textarea className="form-control" name="message" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."
+                                                value={this.state.message}
+                                                onChange={event => {
+                                                    this.setState({ message: event.target.value })
+                                                }}
+                                            ></textarea>
                                             <p className="help-block text-danger"></p>
                                         </div>
                                     </div>
