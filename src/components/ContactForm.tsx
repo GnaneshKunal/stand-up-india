@@ -1,4 +1,11 @@
 import * as React from 'react';
+import { connect, Dispatch } from 'react-redux';
+
+import * as actions from '../actions';
+
+interface IContactFormProps {
+    sendFormDetails: (details: Idetails) => any
+}
 
 interface IContactFormState {
     name: string,
@@ -7,7 +14,14 @@ interface IContactFormState {
     message: string
 }
 
-export default class ContactForm extends React.Component<{}, IContactFormState> {
+interface Idetails {
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+}
+
+class ContactForm extends React.Component<IContactFormProps, IContactFormState> {
 
     constructor(props: any) {
         super(props);
@@ -23,7 +37,7 @@ export default class ContactForm extends React.Component<{}, IContactFormState> 
 
     onFormSubmit(event: any) {
         event.preventDefault();
-        console.log(this.state);
+        this.props.sendFormDetails(this.state);
     }
 
     public render(): JSX.Element {
@@ -95,3 +109,13 @@ export default class ContactForm extends React.Component<{}, IContactFormState> 
         );
     }
 }
+
+const mapStateToProps = (state: any) => state;
+
+export function mapDispatchToProps(dispatch: Dispatch<any>) {
+    return {
+        sendFormDetails: (details: Idetails) => dispatch<any>(actions.sendFormDetails(details))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

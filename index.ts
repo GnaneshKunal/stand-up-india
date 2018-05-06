@@ -4,16 +4,16 @@ import * as http from 'http';
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
 import * as cors from 'cors';
-
 import * as fs from 'fs';
+import * as bodyParser from 'body-parser';
 
 dotenv.config();
-
-import StandUpIndia from './lib/model';
 
 const PORT: string | number = process.env.PORT || 8080;
 
 const url: string = process.env.MONGO_URI || 'mongodb://localhost:27017/standup';
+
+import StandUpIndiaRouter from './lib/router'
 
 mongoose.connect(<string>url, (err: mongoose.Error) => {
     if (err) {
@@ -34,75 +34,17 @@ class App {
         this.mountRoutes();
     }
 
-    StandUpIndiaRouter() {
-        const StandUpIndiaRouter = express.Router();
-
-        StandUpIndiaRouter.get('/search', (req: express.Request, res: express.Response) => {
-            const query = req.query.q;
-            if (!query) {
-                return res.status(400).send({
-                    data: 'Please specify query'
-                });
-            }
-
-            StandUpIndia.find({ 'Application No': new RegExp(query, 'i') })
-                .limit(10)
-                .select({ 'Enterprise Name': 1, 'District': 1, 'Address': 1, '_id': 0, 'Application No': 1 })
-                .exec((err: Error, docs: Array<any>) => {
-                    if (err)
-                        return res.status(500).send({
-                            data: 'Sorry, Error'
-                        });
-                    return res.status(200).send({
-                        data: docs
-                    });
-                });
-        });
-
-        StandUpIndiaRouter.get('/doc', (req: express.Request, res: express.Response) => {
-            const appID = req.query.id;
-            if (!appID)
-                return res.status(400).send({
-                    data: 'Please specify an id'
-                });
-
-            StandUpIndia.find({ 'Application No': appID })
-                .select({ 's': 0, '_id': 0 })
-                .exec((err: Error, doc: any) => {
-                    if (err)
-                        return res.status(500).send({
-                            data: 'Something went wrong'
-                        });
-                    return res.status(200).send({
-                        data: doc
-                    });
-                });
-        });
-
-	StandUpIndiaRouter.get('/success-pics', (_, res: express.Response) => {
-	    fs.readdir('./img/success', (err: Error, pics: Array<string>) => {
-		if (err)
-		    return res.status(500).send({
-			data: 'Something went wrong'
-		    });
-		return res.status(200).send({
-		    data: pics
-		});
-	    });    
-	});
-	
-        return StandUpIndiaRouter;
-    }
-
     private mountRoutes(): void {
         const router: express.Router = express.Router();
         this.express.use(cors());
+        this.express.use(bodyParser.json());
+        this.express.use(bodyParser.urlencoded({ extended: false }));
         this.express.use(express.static('.'));
         router.get(['/', '/doc', '/search', '/success-stories'], (_, res: express.Response) => {
             return res.sendFile(path.join(__dirname + '/../', 'index.html'));
         });
         this.express.use('/', router);
-        this.express.use('/api', this.StandUpIndiaRouter());
+        this.express.use('/api', StandUpIndiaRouter);
     }
 }
 

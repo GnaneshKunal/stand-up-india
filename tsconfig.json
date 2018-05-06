@@ -11,6 +11,6 @@
     "noUnusedParameters": true
   },
   "files": [
-      "index.ts", "./lib/model.ts"
+      "index.ts", "./lib/model.ts", "./lib/email.ts", "./lib/router.ts"
   ]
 }

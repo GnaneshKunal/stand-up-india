@@ -3,8 +3,16 @@ import axios from 'axios';
 import {
     SEARCH_DOC,
     GET_DOC,
-    SUCCESS_PICS
+    SUCCESS_PICS,
+    SEND_FORM_DETAILS
 } from './types';
+
+interface Idetails {
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+}
 
 const ROOT_URL = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
 
@@ -45,6 +53,21 @@ export function getSuccessPics() {
             .then(response => {
                 dispatch({
                     type: SUCCESS_PICS,
+                    payload: response.data.data
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+}
+
+export function sendFormDetails(details: Idetails) {
+    return function(dispatch: any) {
+        return axios.post(`${ROOT_URL}/api/form`, details)
+            .then(response => {
+                dispatch({
+                    type: SEND_FORM_DETAILS,
                     payload: response.data.data
                 });
             })

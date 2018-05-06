@@ -13,31 +13,7 @@ export default class Team extends React.Component<{}, {}> {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-4">
-                            <div className="team-member">
-                                <img className="mx-auto rounded-circle" src="img/team/1.jpg" alt="" />
-                                <h4>Kay Garland</h4>
-                                <p className="text-muted">Lead Designer</p>
-                                <ul className="list-inline social-buttons">
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-sm-4">
+                        <div className="col-lg-12 text-center" >
                             <div className="team-member">
                                 <img className="mx-auto rounded-circle" src="img/team/2.jpg" alt="" />
                                 <h4>David Brainard</h4>
@@ -61,34 +37,10 @@ export default class Team extends React.Component<{}, {}> {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-sm-4">
-                            <div className="team-member">
-                                <img className="mx-auto rounded-circle" src="img/team/3.jpg" alt="" />
-                                <h4>Diana Pertersen</h4>
-                                <p className="text-muted">Lead Developer</p>
-                                <ul className="list-inline social-buttons">
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a href="#">
-                                            <i className="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                     <div className="row">
                         <div className="col-lg-8 mx-auto text-center">
-                            <p className="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                            <p className="large text-muted"></p>
                         </div>
                     </div>
                 </div>
