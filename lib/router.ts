@@ -61,14 +61,10 @@ StandUpIndiaRouter.get('/success-pics', (_, res: express.Response) => {
 });
 
 StandUpIndiaRouter.post('/form', (req: express.Request, res: express.Response) => {
-    if (sendMail(req.body))
-        return res.status(200).send({
-            data: 'Mail has been sent'
-        });
-    else
-        return res.status(400).send({
-            data: 'Bad Request'
-        });
+    sendMail(req.body);
+    return res.status(200).send({
+        data: 'Mail has been sent'
+    });
 });
 
 export default StandUpIndiaRouter;

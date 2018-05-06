@@ -20,23 +20,20 @@ export default () => {
                                     <Link className="nav-link js-scroll-trigger" to="/search">Search</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#services" to="/#services">Services</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#portfolio" to="/#portfolio">Portfolio</Link>
+                                    <Link className="nav-link js-scroll-trigger" to="/#services">Services</Link>
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#portfolio" to="/success-stories">Success Stories</Link>
+                                    <Link className="nav-link js-scroll-trigger" to="/success-stories">Success Stories</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#about" to="/#about">About</Link>
+                                    <Link className="nav-link js-scroll-trigger" to="/#about">About</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#team" to="/#team">Team</Link>
+                                    <Link className="nav-link js-scroll-trigger" to="/#team">Team</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link js-scroll-trigger" href="#contact" to="/#contact">Contact</Link>
+                                    <Link className="nav-link js-scroll-trigger" to="/#contact">Contact</Link>
                                 </li>
                             </ul>
                         </div>
