@@ -57,26 +57,27 @@ export default () => {
 					    The Chief Minister, who pioneered the self-help group movement, also decided to entrust the SHGs with the task of preparing Detailed Project Reports (DPRs) for viable economic ventures, and they would be paid Rs. 10,000 per DPR, Mr. Vijaykumar said.</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>{/* 
+				     <li>
+                                     <div className="timeline-image">
+                                     <img className="rounded-circle img-fluid" src="img/kamble.jpg" alt="" />
+                                     </div>
+                                     <div className="timeline-panel">
+                                     <div className="timeline-heading">
+                                     <h4>2018</h4>
+                                     <h4 className="subheading">Assured market makes this best time for Dalit entrepreneurs, says DICCI founder Milind Kamble</h4>
+                                     </div>
+                                     <div className="timeline-body">
+                                     <p className="text-muted">This is the best time for Dalit youngsters to turn entrepreneurs as the government has created conditions for meeting their aspirations, believes Milind Kamble, founder of the Dalit Indian Chamber of Commerce and Industry (DICCI).
+
+				     In an interview with Smriti Kak Ramachandran, Kamble, who set up DICCI in 2005 as a one-stop resource centre for existing and aspiring Dalit entrepreneurs, says the policies of the BJP-led NDA government offer complete market support to youth from the communities who are aspiring to create jobs.
+
+				     In the wake of protests that the Union government faces from Scheduled Castes and Scheduled Tribes communities, Kamble, who trained as a civil engineer and is an entrepreneur, said schemes such as Mudra and Stand up India have benefited the marginalised communities. </p>
+                                     </div>
+                                     </div>
+				     </li> */}
+
                             <li>
-                                <div className="timeline-image">
-                                    <img className="rounded-circle img-fluid" src="img/kamble.jpg" alt="" />
-                                </div>
-                                <div className="timeline-panel">
-                                    <div className="timeline-heading">
-                                        <h4>2018</h4>
-                                        <h4 className="subheading">Assured market makes this best time for Dalit entrepreneurs, says DICCI founder Milind Kamble</h4>
-                                    </div>
-                                    <div className="timeline-body">
-                                        <p className="text-muted">This is the best time for Dalit youngsters to turn entrepreneurs as the government has created conditions for meeting their aspirations, believes Milind Kamble, founder of the Dalit Indian Chamber of Commerce and Industry (DICCI).
-
-					    In an interview with Smriti Kak Ramachandran, Kamble, who set up DICCI in 2005 as a one-stop resource centre for existing and aspiring Dalit entrepreneurs, says the policies of the BJP-led NDA government offer complete market support to youth from the communities who are aspiring to create jobs.
-
-					    In the wake of protests that the Union government faces from Scheduled Castes and Scheduled Tribes communities, Kamble, who trained as a civil engineer and is an entrepreneur, said schemes such as Mudra and Stand up India have benefited the marginalised communities. </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="timeline-inverted">
                                 <div className="timeline-image">
                                     <img className="rounded-circle img-fluid" src="img/pradyumna.jpg" alt="" />
                                 </div>
@@ -89,11 +90,11 @@ export default () => {
                                         <p className="text-muted">Chittoor district is showing its lead in Stand Up India scheme that facilitates obtaining bank loans between 10 lakh and 1 crore rupees by at least Scheduled Caste (SC) or Scheduled Tribe (ST) borrower and at least one woman borrower per bank branch for setting up a greenfield enterprise. The administration of Chittoor district has allotted more than 520 vehicles including cars and JCB machines worth about Rs 100 crore.
 					    Loans given under Stand-Up India may be used in manufacturing, services or trading sector. In case of non-individual enterprises, at least 51 per cent of the shareholding and controlling stake should be held by either an SC/ST or woman entrepreneur. The Chittoor district has delivered 520 units (vehicles) while more than 98 applications are under process that will be delivered by next month.
 					    Chittoor district is likely to touch the 600 units mark by next month. Vijayanagaram takes the bottom place having delivered only 74 units.
-					    Chittoor district collector P.S. Pradyumna is very keen on making the scheme a success and holding video conferences with the concerned authorities at least twice a week. Banks are also giving loan in less than a month. The beneficiary can get loan without collateral security. Speaking to DC, Mr Pradyumna said, "We are working hard to create more opportunities to the poor. This scheme is to encourage more entrepreneurs. The beneficiaries are really happy with the scheme. A car similar to the one that I am using is supplied to the beneficiaries."
-					</p>
+					    Chittoor district collector P.S. Pradyumna is very keen on making the scheme a success and holding video conferences with the concerned authorities at least twice a week. Banks are also giving loan in less than a month. The beneficiary can get loan without collateral security. Speaking to DC, Mr Pradyumna said, "We are working hard to create more opportunities to the poor. This scheme is to encourage more entrepreneurs. The beneficiaries are really happy with the scheme. A car similar to the one that I am using is supplied to the beneficiaries."</p>
                                     </div>
                                 </div>
                             </li>
+
                             <li className="timeline-inverted">
                                 <div className="timeline-image">
                                     <h4>Be Part

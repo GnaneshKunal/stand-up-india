@@ -17,7 +17,7 @@ export default class Team extends React.Component<{}, {}> {
                             <div className="team-member">
                                 <img className="mx-auto rounded-circle" src="img/team/1.png" alt="" />
                                 <h4>David Brainard</h4>
-                                <p className="text-muted">Lead Member</p>
+                                <p className="text-muted">Chairman and CEO of Microsmartware.Pvt. Ltd</p>
                                 <ul className="list-inline social-buttons">
                                     <li className="list-inline-item">
                                         <a href="#">
