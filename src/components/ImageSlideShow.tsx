@@ -19,7 +19,7 @@ class ImageSlideShow extends React.Component<IImageSlideShowProps, {}> {
 
     constructor(props: any) {
         super(props);
-        this.props.getSuccessPics();
+        /* this.props.getSuccessPics(); */
     }
 
     carouselTemplate(elem: JSX.Element): JSX.Element {
@@ -47,7 +47,7 @@ class ImageSlideShow extends React.Component<IImageSlideShowProps, {}> {
     picTemplate(img: string, no: string): JSX.Element {
         return (
             <div className="carousel-item active">
-                <img className="d-block w-100" src={"img/success/" + img} alt={no + " slide"} />
+                <img className="d-block w-100" src={img} alt={no + " slide"} />
             </div>
 
         );
@@ -154,22 +154,22 @@ class ImageSlideShow extends React.Component<IImageSlideShowProps, {}> {
                             <div className="p-1">
 
                                 <div className="carousel-item active">
-                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="img/success/2018-04-30-PHOTO-00000284.jpg" alt="First slide" />
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/zblwbeuoq5h6308/2018-04-30-PHOTO-00000284.jpg?raw=1" alt="First slide" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="img/success/2018-04-30-PHOTO-00000296.jpg" alt="Second slide" />
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/dwfw1wybzqxh2x3/2018-04-30-PHOTO-00000296.jpg?raw=1" alt="Second slide" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="img/success/2018-04-30-PHOTO-00000287.jpg" alt="Third slide" />
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/0s09n1hj4wepy2a/2018-04-30-PHOTO-00000287.jpg?raw=1" alt="Third slide" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="img/success/IMG_038682.JPG" alt="Fourth slide" />
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/lwl9ljwfsrde9dm/IMG_038682.JPG?raw=1" alt="Fourth slide" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="img/success/IMG_039012.JPG" alt="Fifth slide" />
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/jwizowqczp5815k/IMG_039012.JPG?raw=1" alt="Fifth slide" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img style={{ maxWidth: '800px', maxHeight: '800px' }} className="d-block w-100" src="img/success/IMG_035792.JPG" alt="Sixth slide" />
+                                    <img style={{ maxWidth: '800px', maxHeight: '800px' }} className="d-block w-100" src="https://www.dropbox.com/s/pkvktbtphw3cs5x/IMG_035792.JPG?raw=1" alt="Sixth slide" />
                                 </div>
                             </div>
                             <div className="p-1">

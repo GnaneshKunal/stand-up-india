@@ -45,22 +45,22 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                             <div className="row">
                                 <div className="col-md-3 col-sm-6">
                                     <a href="#">
-                                        <img className="img-fluid d-block mx-auto" src="img/logos/indianbank.png" alt="" />
+                                        <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/3zm53395o3sf2vk/indianbank.png?raw=1" alt="" />
                                     </a>
                                 </div>
                                 <div className="col-md-3 col-sm-6">
                                     <a href="#">
-                                        <img className="img-fluid d-block mx-auto" src="img/logos/axis.png" alt="" />
+                                        <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/ucn2m4wi46cifyw/axis.png?raw=1" alt="" />
                                     </a>
                                 </div>
                                 <div className="col-md-3 col-sm-6">
                                     <a href="#">
-                                        <img className="img-fluid d-block mx-auto" src="img/logos/sbi.png" alt="" />
+                                        <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/gtrr5xexh1dndt7/sbi.png?raw=1" alt="" />
                                     </a>
                                 </div>
                                 <div className="col-md-3 col-sm-6">
                                     <a href="#">
-                                        <img className="img-fluid d-block mx-auto" src="img/logos/andhrabank.png" alt="" />
+                                        <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/ixn4n1ej5fe8g2c/andhrabank.png?raw=1" alt="" />
                                     </a>
                                 </div>
                             </div>
