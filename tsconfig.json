@@ -8,7 +8,8 @@
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
-    "noUnusedParameters": true
+     "noUnusedParameters": true,
+     "lib": ["es2015.promise", "es5", "dom"]
   },
   "files": [
       "index.ts", "./lib/model.ts", "./lib/email.ts", "./lib/router.ts"

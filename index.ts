@@ -7,6 +7,9 @@ import * as cors from 'cors';
 import * as fs from 'fs';
 import * as bodyParser from 'body-parser';
 
+import 'isomorphic-fetch';
+import { Dropbox } from 'dropbox';
+
 dotenv.config();
 
 const PORT: string | number = process.env.PORT || 8080;

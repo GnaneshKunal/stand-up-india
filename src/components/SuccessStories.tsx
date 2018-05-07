@@ -45,7 +45,7 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
                             <i className="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img className="img-fluid" src={"img/success/" + img} alt="" />
+                    <img className="img-fluid" src={img} alt="" />
                 </a>
                 {/* <div className="portfolio-caption">
                     <h4>{name}</h4>
@@ -122,7 +122,7 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
                                     <div className="modal-body">
                                         {/* <h2 className="text-uppercase">{name}</h2>
                                             <p className="item-intro text-muted">{short}</p> */}
-                                        <img className="img-fluid d-block mx-auto" src={"img/success/" + img} alt="" />
+                                        <img className="img-fluid d-block mx-auto" src={img} alt="" />
                                         {/* <p>{long}</p>
                                             <ul className="list-inline">
                                             <li>Date: {date}</li>
