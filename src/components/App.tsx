@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import Header from './Header';
 import DocView from './DocView';
 import SuccessStories from './SuccessStories';
+import Meetings from './Meetings';
 
 const App = (): JSX.Element => (
     <div>
@@ -15,6 +16,7 @@ const App = (): JSX.Element => (
                 <Route exact path='/search' component={Main} />
                 <Route exact path='/doc' component={DocView} />
                 <Route exact path='/success-stories' component={SuccessStories} />
+		<Route exact path='/meetings' component={Meetings} />
             </Switch>
         </main>
     </div>

@@ -43,7 +43,7 @@ class App {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
         this.express.use(express.static('.'));
-        router.get(['/', '/doc', '/search', '/success-stories'], (_, res: express.Response) => {
+        router.get(['/', '/doc', '/search', '/success-stories', '/meetings'], (_, res: express.Response) => {
             return res.sendFile(path.join(__dirname + '/../', 'index.html'));
         });
         this.express.use('/', router);
