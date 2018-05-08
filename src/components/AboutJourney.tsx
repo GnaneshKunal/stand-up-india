@@ -83,7 +83,7 @@ export default () => {
                                 </div>
                                 <div className="timeline-panel">
                                     <div className="timeline-heading">
-                                        <h4>2018</h4>
+                                        <h4>2017</h4>
                                         <h4 className="subheading">Chittoor district leads in Stand Up India</h4>
                                     </div>
                                     <div className="timeline-body">
