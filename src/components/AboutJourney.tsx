@@ -79,7 +79,7 @@ export default () => {
 
                             <li>
                                 <div className="timeline-image">
-                                    <img className="rounded-circle img-fluid" src="https://www.dropbox.com/s/8yzw46vqu6spnn7/pradyumna.png?raw=1" alt="" />
+                                    <img className="rounded-circle img-fluid" src="img/prad.png" alt="" />
                                 </div>
                                 <div className="timeline-panel">
                                     <div className="timeline-heading">
