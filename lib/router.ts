@@ -10,31 +10,23 @@ import { sendMail } from './email';
 
 const StandUpIndiaRouter = express.Router();
 
-async function fetchPics(path: string, res: express.Response) {
-    let i = 0;
-    let links: Array<string> = [];
-    dbx.filesListFolder({ path })
-        .then((files: any) => {
-            return map(files.entries, async (file: any) => {
-                await dbx.sharingCreateSharedLink({ path: file.path_lower })
-                    .then((fileMetaData: any) => {
-                        links.push(fileMetaData.url.split("?")[0] + "?raw=1");
-                        if (files.entries.length === links.length) {
-                            return res.status(200).send({
-                                data: links
-                            });
-                        }
-                    })
-                    .catch((err) => {
-                        return res.status(500).send({
-                            data: err
-                        });
-                    });
+function partitionLinks(arr: any, path: string) {
+    return compact(map(arr, (file: any) => {
+        if (file.path.includes(path))
+            return file.url.split("?")[0] + "?raw=1";
+    }));
+}
+
+function getPics(path: string, res: express.Response) {
+    dbx.sharingGetSharedLinks({})
+        .then(function(r: any) {
+            return res.status(200).send({
+                data: partitionLinks(r.links, path)
             });
         })
-        .catch((err) => {
+        .catch((_: any) => {
             return res.status(500).send({
-                data: err
+                data: 'Something went wrong'
             });
         });
 }
@@ -82,11 +74,11 @@ StandUpIndiaRouter.get('/doc', (req: express.Request, res: express.Response) => 
 });
 
 StandUpIndiaRouter.get('/success-pics', (_, res: express.Response) => {
-    fetchPics('/success_pics', res);
+    getPics('success_pics', res);
 });
 
 StandUpIndiaRouter.get('/meetings-pics', (_, res: express.Response) => {
-    fetchPics('/meetings', res);
+    getPics('meetings', res);
 });
 
 StandUpIndiaRouter.post('/form', (req: express.Request, res: express.Response) => {
