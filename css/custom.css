@@ -1,0 +1,11 @@
+div.center-cropped {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+}
+div.center-cropped img {
+    width: 100%;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}

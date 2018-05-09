@@ -20,6 +20,60 @@ class Meetings extends React.Component<IMeetingsProps, {}> {
         this.props.getMeetingsPics();
     }
 
+    thumbnailTemplate(picData: JSX.Element): JSX.Element {
+        return (
+            <section className='bg-light' id='portfolio'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-lg-12 text-center'>
+                            <h2 className='section-heading text-uppercase'>Meetings Pictures</h2>
+                        </div>
+                    </div>
+                    {picData}
+                </div>
+            </section>
+        );
+    }
+
+    thumbnailPicTemplate(img: string/* , name: string, short: string */): JSX.Element {
+        return (
+            <div className="col-lg-4 col-md-4 col-xs-6">
+                <a href="#" className="d-block mb-4 h-100">
+                    <div className="center-cropped">
+                        <img src={img} alt="" />
+                    </div>
+                </a>
+            </div>
+        );
+    }
+
+    thumbnailRenderPics(): JSX.Element {
+        let pics = this.props.meetingsPics.data;
+        if (pics !== undefined && pics !== null) {
+            return (
+                this.thumbnailTemplate(
+                    <div className='row text-center text-lg-left'>
+                        {map(pics, (pic: string) => {
+                            if (pic !== '.DS_Store')
+                                return (
+                                    this.thumbnailPicTemplate(pic/* , 'name', 'short' */)
+                                );
+                        })}
+                    </div>
+                )
+            );
+        }
+        else {
+            return (
+                this.template(
+                    <div>
+                        Loading
+                    </div>
+                )
+            );
+        }
+    }
+
     template(picData: JSX.Element): JSX.Element {
         return (
             <section className='bg-light' id='portfolio'>
@@ -61,10 +115,10 @@ class Meetings extends React.Component<IMeetingsProps, {}> {
                 this.template(
                     <div className='row'>
                         {map(pics, (pic: string) => {
-                             if (pic !== '.DS_Store')
-                                 return (
-                                     this.picTemplate(pic/* , 'name', 'short' */)
-                                 );
+                            if (pic !== '.DS_Store')
+                                return (
+                                    this.picTemplate(pic/* , 'name', 'short' */)
+                                );
                         })}
                     </div>
                 )
@@ -134,12 +188,12 @@ class Meetings extends React.Component<IMeetingsProps, {}> {
     }
 
     public render(): JSX.Element {
-// tslint:disable-next-line
+        // tslint:disable-next-line
         console.log(this.props);
         return (
             <div>
                 {/*Portfolio Grid*/}
-                {this.renderPics()}
+                {this.thumbnailRenderPics()}
                 {this.renderModals()}
             </div>
         );

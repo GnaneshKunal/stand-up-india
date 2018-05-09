@@ -20,6 +20,62 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
         this.props.getSuccessPics();
     }
 
+
+    thumbnailTemplate(picData: JSX.Element): JSX.Element {
+        return (
+            <section className='bg-light' id='portfolio'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-lg-12 text-center'>
+                            <h2 className='section-heading text-uppercase'>Success Pictures</h2>
+                        </div>
+                    </div>
+                    {picData}
+                </div>
+            </section>
+        );
+    }
+
+    thumbnailPicTemplate(img: string/* , name: string, short: string */): JSX.Element {
+        return (
+            <div className="col-lg-4 col-md-4 col-xs-6">
+                <a href="#" className="d-block mb-4 h-100">
+                    <div className="center-cropped">
+                        <img src={img} alt="" />
+                    </div>
+                </a>
+            </div>
+        );
+    }
+
+    thumbnailRenderPics(): JSX.Element {
+        let pics = this.props.successPics.data;
+        if (pics !== undefined && pics !== null) {
+            return (
+                this.thumbnailTemplate(
+                    <div className='row text-center text-lg-left'>
+                        {map(pics, (pic: string) => {
+                            if (pic !== '.DS_Store')
+                                return (
+                                    this.thumbnailPicTemplate(pic/* , 'name', 'short' */)
+                                );
+                        })}
+                    </div>
+                )
+            );
+        }
+        else {
+            return (
+                this.template(
+                    <div>
+                        Loading
+                    </div>
+                )
+            );
+        }
+    }
+
+
     template(picData: JSX.Element): JSX.Element {
         return (
             <section className="bg-light" id="portfolio">
@@ -38,14 +94,14 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
 
     picTemplate(img: string/* , name: string, short: string */): JSX.Element {
         return (
-            <div className="col-md-4 col-sm-6 portfolio-item">
+            <div className="col-md-4 col-sm-6 portfolio-item" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                 <a className="portfolio-link" data-toggle="modal" href={'#' + img}>
                     <div className="portfolio-hover">
                         <div className="portfolio-hover-content">
                             <i className="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img className="img-fluid" src={img} alt="" />
+                    <img className="img-responsive" src={img} alt="" />
                 </a>
                 {/* <div className="portfolio-caption">
                     <h4>{name}</h4>
@@ -122,7 +178,7 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
                                     <div className="modal-body">
                                         {/* <h2 className="text-uppercase">{name}</h2>
                                             <p className="item-intro text-muted">{short}</p> */}
-                                        <img className="img-fluid d-block mx-auto" src={img} alt="" />
+                                        <img className="img-fluid d-block mx-auto w-300" src={img} alt="" />
                                         {/* <p>{long}</p>
                                             <ul className="list-inline">
                                             <li>Date: {date}</li>
@@ -147,7 +203,7 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
         return (
             <div>
                 {/*Portfolio Grid*/}
-                {this.renderPics()}
+                {this.thumbnailRenderPics()}
                 {this.renderModals()}
             </div>
         );
