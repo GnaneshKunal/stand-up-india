@@ -15,7 +15,7 @@ export default class Team extends React.Component<{}, {}> {
                     <div className="row">
                         <div className="col-lg-12 text-center" >
                             <div className="team-member">
-                                <img className="mx-auto rounded-circle" src="https://www.dropbox.com/s/872hcavachp8l6e/david.png?raw=1" alt="" />
+                                <img className="mx-auto rounded-circle" src="https://www.dropbox.com/s/gfs77rwwa9v3brk/d.jpg?raw=1" alt="" />
                                 <h4>David Brainard</h4>
                                 <p className="text-muted">Chairman and CEO of Microsmartware.Pvt. Ltd</p>
                                 <p>  David Brainard  is  a Humble worker  who  has been blasting / Eradicating poverty through   Business  by mentoring and motivating  about  Economic Support schemes, Mudraloans, Start-up India, STAND-UP INDIA , MSME  Loans and Much more.
