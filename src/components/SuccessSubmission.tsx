@@ -1,17 +1,34 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
+import Dropzone from 'react-dropzone';
 
 import * as actions from '../actions';
 
-interface IContactFormProps {
-    sendFormDetails: (details: Idetails) => any
+import axios from 'axios';
+
+interface ISuccessSubmissionProps {
+    successSubmit: (details: any) => any
 }
 
-interface IContactFormState {
+interface ISuccessSubmissionState {
     name: string,
+    businessName: string,
     phone: string,
     email: string,
-    message: string
+    message: string,
+    pic: any,
+    vid: any,
+    businessNature: string,
+    firstTime: string,
+    location: string,
+    place: string,
+    pincode: string,
+    district: string,
+    state: string,
+    bank: string,
+    year: string,
+    loan: string,
+    brief: string
 }
 
 interface Idetails {
@@ -21,23 +38,72 @@ interface Idetails {
     message: string;
 }
 
-class ContactForm extends React.Component<IContactFormProps, IContactFormState> {
+class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISuccessSubmissionState> {
 
     constructor(props: any) {
         super(props);
 
         this.state = {
             name: '',
+            businessName: '',
             phone: '',
             email: '',
-            message: ''
+            message: '',
+            pic: '',
+            vid: '',
+            businessNature: '',
+            firstTime: '',
+            location: '',
+            place: '',
+            pincode: '',
+            district: '',
+            state: '',
+            bank: '',
+            year: '',
+            loan: '',
+            brief: ''
         };
 
     }
 
+    onImageChange(event: any) {
+        console.log(event.props);
+        this.setState({ pic: event.target.files[0] });
+        /* let formData = new FormData();
+	 * console.log(event.target.files);
+	 * formData.append("img", event.target.files[0]);
+	 * axios.post('http://localhost:8080/api/upload', formData, {
+	 *     headers: { 'X-Requested-With': 'XMLHttpRequest' }
+	 * })
+	 *     .then((res: any) => {
+	 *         console.log(res);
+	 *     })
+	 *     .catch((err: any) => {
+	 *         console.log(err);
+	 *     }); */
+    }
+
     onFormSubmit(event: any) {
         event.preventDefault();
-        this.props.sendFormDetails(this.state);
+        console.log(this.state);
+        this.props.successSubmit(this.state);
+    }
+
+    onVideoChange(event: any) {
+        console.log(event.props);
+        this.setState({ vid: event.target.files[0] })
+        /* let formData = new FormData();
+	 * console.log(event.target.files);
+	 * formData.append("vid", event.target.files[0]); */
+        /* axios.post('http://localhost:8080/api/upload', formData, {
+	 *     headers: { 'X-Requested-With': 'XMLHttpRequest' }
+	 * })
+	 *     .then((res: any) => {
+	 *         console.log(res);
+	 *     })
+	 *     .catch((err: any) => {
+	 *         console.log(err);
+	 *     }); */
     }
 
     public render(): JSX.Element {
@@ -55,135 +121,208 @@ class ContactForm extends React.Component<IContactFormProps, IContactFormState> 
                             <form id="contactForm" name="sentMessage" onSubmit={this.onFormSubmit.bind(this)}>
                                 <div className="row">
                                     <div className="col-md-12">
+                                        {/* <div className="form-group">
+                                            <input className="form-control" id="name" name="name" type="file" placeholder="Your Name *" required data-validation-required-message="Please enter Entrepreneur's name."
+                                            value={this.state.name}
+                                            onChange={this.onImageChange.bind(this)}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                            </div>
+
+                                            <div className="form-group">
+                                            <input className="form-control" id="name" name="name" type="file" placeholder="Your Name *" required data-validation-required-message="Please enter Entrepreneur's name."
+                                            onChange={this.onVideoChange.bind(this)}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                            </div> */}
                                         <div className="form-group">
-                                            <input className="form-control" id="name" name="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter Entrepreneur's name."
-                                                   value={this.state.name}
-                                                   onChange={event => {
-							   this.setState({ name: event.target.value })
-                                                   }}
-                                            />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Your Business name"
-
-                                            />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-					
-					<div className="form-group">
-					    <label>Nature of Business</label>
-					    <select className="form-control" id="exampleFormControlSelect1">
-						<option selected>Select your business Nature</option>
-						<option>Manufacturing</option>
-						<option>Services</option>
-						<option>Trading</option>
-					    </select>
-					</div>
-					<div className="form-group" >
-					    <label> <span style={{color: "white"}}>First time entrepreneur?</span></label>
-					    <div className="form-check">
-						<input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
-						<label className="form-check-label">
-						    <span style={{color: "white"}}> Yes</span>
-						</label>
-					    </div>
-					    <div className="form-check">
-						<input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-						<label className="form-check-label">
-						    <span style={{color: "white"}}> No</span>
-						</label>
-					    </div>
-					</div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Location of Business Activity" required data-validation-required-message="Please enter your phone number."
-                                                   value={this.state.phone}
-                                                   onChange={event => {
-							   this.setState({ phone: event.target.value })
-                                                   }}
-
-                                            />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="City/Town/Village" required data-validation-required-message="Please enter your phone number."
-                                                   value={this.state.phone}
-                                                   onChange={event => {
-							   this.setState({ phone: event.target.value })
-                                                   }}
-
-                                            />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="PINCODE" required data-validation-required-message="Please enter your phone number."
-                                                   value={this.state.phone}
-                                                   onChange={event => {
-							   this.setState({ phone: event.target.value })
-                                                   }}
-
-                                            />
-                                            <p className="help-block text-danger"></p>
-                                        </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Distict" required data-validation-required-message="Please enter your phone number."
-                                                   value={this.state.phone}
-                                                   onChange={event => {
-							   this.setState({ phone: event.target.value })
-                                                   }}
-
+                                            <input className="form-control" id="name" name="name" type="text" placeholder="Your Name *"
+                                                value={this.state.name}
+                                                onChange={event => {
+                                                    this.setState({ name: event.target.value })
+                                                }}
                                             />
                                             <p className="help-block text-danger"></p>
                                         </div>
                                         <div className="form-group">
-                                            <input className="form-control" id="email" type="email" name="email" placeholder="State" required data-validation-required-message="Please enter your email address."
-                                                   value={this.state.email}
-                                                   onChange={event => {
-							   this.setState({ email: event.target.value })
-                                                   }}
+                                            <input className="form-control" id="bname" name="bname" type="text" placeholder="Your Business name"
+                                                value={this.state.businessName}
+                                                onChange={event => {
+                                                    this.setState({ businessName: event.target.value })
+                                                }}
                                             />
                                             <p className="help-block text-danger"></p>
                                         </div>
-					<div className="form-group">
-					    <label><span style={{color: "white"}}>Select Bank</span></label>
-					    <select className="form-control" id="exampleFormControlSelect1">
-						<option>State Bank of India</option>
-						<option>Axis Bank</option>
-						<option>Indian Bank</option>
-						<option>Andhra bank</option>
-						<option>Bank</option>
-					    </select>
-					</div>
-					
                                         <div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Year of Launch" required data-validation-required-message="Please enter your phone number."
+                                            <input className="form-control" id="mobile" name="mobile" type="tel" placeholder="Mobile No."
+                                                value={this.state.phone}
+                                                onChange={event => {
+                                                    this.setState({ phone: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        <div className="form-group">
+                                            <input className="form-control" id="nature" name="nature" type="text" placeholder="Nature of Business"
+                                                value={this.state.businessNature}
+                                                onChange={event => {
+                                                    this.setState({ businessNature: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        {/* <div className="form-group">
+                                            <label>Nature of Business</label>
+                                            <select className="form-control"
+                                            value={this.state.businessNature}
+                                            onChange={event => {
+					    this.setState({ businessNature: event.target.value })
+                                            }}
+                                            id="exampleFormControlSelect1">
+                                            <option value={"Manufacturing"}>Manufacturing</option>
+                                            <option value={"Services"}>Services</option>
+                                            <option value={"Trading"}>Trading</option>
+                                            </select>
+                                            </div> */}
+
+                                        <div className="form-group">
+                                            <input className="form-control" id="firsttime" name="firsttime" type="text" placeholder="First Time (Yes/No)"
+                                                value={this.state.firstTime}
+                                                onChange={event => {
+                                                    this.setState({ firstTime: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        {/* <div className="form-group">
+                                            <label><span style={{ color: "white" }}>First time entrepreneur?</span></label>
+                                            <select className="form-control"
+                                            value={this.state.firstTime}
+                                            onChange={event => {
+                                            this.setState({ firstTime: event.target.value })
+                                            }}
+                                            id="exampleFormControlSelect1">
+                                            <option value={"Yes"}>Yes</option>
+                                            <option value={"No"}>No</option>
+                                            </select>
+                                            </div> */}
+
+                                        <div className="form-group">
+                                            <input className="form-control" id="location" name="location" type="text" placeholder="Location of Business Activity"
+                                                value={this.state.location}
+                                                onChange={event => {
+                                                    this.setState({ location: event.target.value })
+                                                }}
 
                                             />
                                             <p className="help-block text-danger"></p>
                                         </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Bank Name" required data-validation-required-message="Please enter your phone number."
+                                        <div className="form-group">
+                                            <input className="form-control" id="place" name="place" placeholder="City/Town/Village" type="text"
+                                                value={this.state.place}
+                                                onChange={event => {
+                                                    this.setState({ place: event.target.value })
+                                                }}
+
                                             />
                                             <p className="help-block text-danger"></p>
                                         </div>
-					<div className="form-group">
-                                            <input className="form-control" id="phone" name="phone" type="tel" placeholder="Loan sanctioned" required data-validation-required-message="Please enter your phone number."
+                                        <div className="form-group">
+                                            <input className="form-control" id="pincode" name="pincode" type="text" placeholder="PINCODE"
+                                                value={this.state.pincode}
+                                                onChange={event => {
+                                                    this.setState({ pincode: event.target.value })
+                                                }}
+
                                             />
                                             <p className="help-block text-danger"></p>
                                         </div>
-					<div className="form-group">
-					    <textarea className="form-control" name="message" id="message" placeholder="Brief about your success story" required data-validation-required-message="Please enter a message."></textarea>
-					</div>
-					
-					<div className="form-group">
-					    <label ><span style={{color: "white"}}>Upload Photo</span></label>
-					    <input type="file" className="form-control-file" id="exampleFormControlFile1" />
-					</div>
-					
-					<div className="form-group">
-					    <label><span style={{color: "white"}}>Upload Video</span></label>
-						<input type="file" className="form-control-file" id="exampleFormControlFile1" />
-					</div>
+                                        <div className="form-group">
+                                            <input className="form-control" id="district" name="district" type="text" placeholder="District"
+                                                value={this.state.district}
+                                                onChange={event => {
+                                                    this.setState({ district: event.target.value })
+                                                }}
+
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        <div className="form-group">
+                                            <input className="form-control" id="state" type="text" name="state" placeholder="State"
+                                                value={this.state.state}
+                                                onChange={event => {
+                                                    this.setState({ state: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <input className="form-control" id="bank" type="text" name="bank" placeholder="Bank Name"
+                                                value={this.state.bank}
+                                                onChange={event => {
+                                                    this.setState({ bank: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+
+                                        {/* <div className="form-group">
+                                            <label><span style={{ color: "white" }}>Select Bank</span></label>
+                                            <select className="form-control" id="exampleFormControlSelect1"
+                                            onChange={event => {
+                                            this.setState({ bank: event.target.value })
+                                            }}
+                                            >
+                                            <option value={"State Bank of India"}>State Bank of India</option>
+                                            <option value={"Axis Bank"}>Axis Bank</option>
+                                            <option value={"Indian Bank"}>Indian Bank</option>
+                                            <option value={"Andhra bank"}>Andhra bank</option>
+                                            <option value={"Other"}>Other</option>
+                                            </select>
+                                            </div> */}
+
+                                        <div className="form-group">
+                                            <input className="form-control" id="year" name="year" type="text" placeholder="Year of Launch"
+                                                value={this.state.year}
+                                                onChange={event => {
+                                                    this.setState({ year: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        <div className="form-group">
+                                            <input className="form-control" id="loan" name="loan" type="text" placeholder="Loan sanctioned"
+                                                value={this.state.loan}
+                                                onChange={event => {
+                                                    this.setState({ loan: event.target.value })
+                                                }}
+                                            />
+                                            <p className="help-block text-danger"></p>
+                                        </div>
+                                        <div className="form-group">
+                                            <textarea className="form-control" name="message" id="message" placeholder="Brief about your success story"
+                                                value={this.state.brief}
+                                                onChange={event => {
+                                                    this.setState({ brief: event.target.value })
+                                                }}
+                                            ></textarea>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label ><span style={{ color: "white" }}>Upload Photo</span></label>
+                                            <input type="file" required
+                                                onChange={this.onImageChange.bind(this)}
+                                                className="form-control-file" id="exampleFormControlFile1" />
+                                        </div>
+
+                                        <div className="form-group">
+                                            <label><span style={{ color: "white" }}>Upload Video</span></label>
+                                            <input
+                                                required
+                                                onChange={this.onVideoChange.bind(this)}
+                                                type="file" className="form-control-file" id="exampleFormControlFile1" />
+                                        </div>
                                     </div>
                                     <div className="clearfix"></div>
                                     <div className="col-lg-12 text-center">
@@ -195,7 +334,7 @@ class ContactForm extends React.Component<IContactFormProps, IContactFormState> 
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
         );
     }
 }
@@ -204,8 +343,8 @@ const mapStateToProps = (state: any) => state;
 
 export function mapDispatchToProps(dispatch: Dispatch<any>) {
     return {
-        sendFormDetails: (details: Idetails) => dispatch<any>(actions.sendFormDetails(details))
+        successSubmit: (details: any) => dispatch<any>(actions.successSubmit(details))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SuccessSubmission);

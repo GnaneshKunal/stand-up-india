@@ -4,6 +4,8 @@ import docReducer from './doc';
 import successPicsReducer from './successPics';
 import formReducer from './form';
 import meetingsPicsReducer from './meetingsPics';
+import uploadPicsReducer from './uploadPics';
+import successSubmitReducer from './successSubmit';
 
 const rootReducer: redux.Reducer<any> = redux.combineReducers({
     // state: (state = {}) => state
@@ -11,7 +13,9 @@ const rootReducer: redux.Reducer<any> = redux.combineReducers({
     doc: docReducer,
     successPics: successPicsReducer,
     form: formReducer,
-    meetingsPics: meetingsPicsReducer
+    meetingsPics: meetingsPicsReducer,
+    successSubmit: successSubmitReducer,
+    uploadPics: uploadPicsReducer
 });
 
 export default rootReducer;

@@ -6,6 +6,7 @@ import * as mongoose from 'mongoose';
 import * as cors from 'cors';
 import * as fs from 'fs';
 import * as bodyParser from 'body-parser';
+import * as multer from 'multer';
 
 import 'isomorphic-fetch';
 import { Dropbox } from 'dropbox';
@@ -43,7 +44,7 @@ class App {
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
         this.express.use(express.static('.'));
-        router.get(['/', '/doc', '/search', '/success-stories', '/meetings'], (_, res: express.Response) => {
+        router.get(['/', '/doc', '/search', '/success-stories', '/meetings', '/upload', '/success-submit'], (_, res: express.Response) => {
             return res.sendFile(path.join(__dirname + '/../', 'index.html'));
         });
         this.express.use('/', router);

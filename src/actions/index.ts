@@ -5,7 +5,9 @@ import {
     GET_DOC,
     SUCCESS_PICS,
     SEND_FORM_DETAILS,
-    MEETINGS_PICS
+    MEETINGS_PICS,
+    UPLOAD_PICS,
+    SUCCESS_SUBMIT
 } from './types';
 
 interface Idetails {
@@ -28,8 +30,63 @@ export function getDocs(search: { search: string }) {
                 });
             })
             .catch((err: Error) => {
-// tslint:disable-next-line
+                // tslint:disable-next-line
                 console.log(err);
+            });
+    };
+}
+
+export function successSubmit(form: any) {
+    return (dispatch: any) => {
+        const formData = new FormData();
+        formData.append("bank", form.bank);
+        formData.append("brief", form.brief);
+        formData.append("businessName", form.businessName);
+        formData.append("businessNature", form.businessNature);
+        formData.append("district", form.district);
+        formData.append("email", form.email);
+        formData.append("firstTime", form.firstTime);
+        formData.append("loan", form.loan);
+        formData.append("location", form.location);
+        formData.append("name", form.name);
+        formData.append("phone", form.phone);
+        formData.append("img", form.pic);
+        formData.append("vid", form.vid);
+        formData.append("year", form.year);
+
+        axios.post('http://localhost:8080/api/upload', formData, {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then((res: any) => {
+                dispatch({
+                    type: SUCCESS_SUBMIT,
+                    payload: res.data.data
+                })
+            })
+            .catch((err: any) => {
+                console.log(err);
+            });
+
+        return axios.get
+    };
+}
+
+export function uploadPics(formData: any) {
+    const MainFormData = new FormData;
+    MainFormData.append("files", formData[1].files);
+    return (dispatch: any) => {
+        return axios.post(`${ROOT_URL}/api/upload`, MainFormData, {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then((response: any) => {
+                dispatch({
+                    type: UPLOAD_PICS,
+                    payload: response.data.data
+                });
+            })
+            .catch((err: Error) => {
+                //tslint:disable-next-line
+                console.log(JSON.stringify(err));
             });
     };
 }
@@ -44,7 +101,7 @@ export function getDoc(docID: string) {
                 });
             })
             .catch((err: Error) => {
-// tslint:disable-next-line
+                // tslint:disable-next-line
                 console.log(err);
             });
     };
@@ -60,7 +117,7 @@ export function getSuccessPics() {
                 });
             })
             .catch((err: Error) => {
-// tslint:disable-next-line
+                // tslint:disable-next-line
                 console.log(err);
             });
     };
@@ -76,7 +133,7 @@ export function getMeetingsPics() {
                 });
             })
             .catch((err: Error) => {
-// tslint:disable-next-line
+                // tslint:disable-next-line
                 console.log(err);
             });
     };
@@ -92,7 +149,7 @@ export function sendFormDetails(details: Idetails) {
                 });
             })
             .catch((err: Error) => {
-// tslint:disable-next-line
+                // tslint:disable-next-line
                 console.log(err);
             });
     };

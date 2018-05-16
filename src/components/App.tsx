@@ -6,6 +6,8 @@ import Header from './Header';
 import DocView from './DocView';
 import SuccessStories from './SuccessStories';
 import Meetings from './Meetings';
+import UploadForm from './UploadForm';
+import SuccessSubmission from './SuccessSubmission';
 
 const App = (): JSX.Element => (
     <div>
@@ -16,7 +18,9 @@ const App = (): JSX.Element => (
                 <Route exact path='/search' component={Main} />
                 <Route exact path='/doc' component={DocView} />
                 <Route exact path='/success-stories' component={SuccessStories} />
-		<Route exact path='/meetings' component={Meetings} />
+                <Route exact path='/meetings' component={Meetings} />
+                <Route exact path='/upload' component={UploadForm} />
+                <Route exact path='/success-submit' component={SuccessSubmission} />
             </Switch>
         </main>
     </div>
