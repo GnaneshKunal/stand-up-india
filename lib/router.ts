@@ -161,10 +161,11 @@ function makeLink(path: string, name: string, res: express.Response) {
         mute: true,
         mode: { '.tag': 'add' }
     })
-        .then((res: any) => {
-            dbx.sharingCreateSharedLink({ path: res.path_lower })
-                .then((res: any) => {
-                    return res.url;
+        .then((response: any) => {
+            dbx.sharingCreateSharedLink({ path: response.path_lower })
+                .then((response2: any) => {
+                    console.log(response2.url);
+                    return response2.url;
                 })
                 .catch((err: Error) => {
                     return res.status(500).send({
@@ -173,6 +174,8 @@ function makeLink(path: string, name: string, res: express.Response) {
                 })
         })
         .catch((err: any) => {
+            console.log(path, name);
+            console.log(err);
             return res.status(500).send({
                 data: err
             })
@@ -187,8 +190,15 @@ StandUpIndiaRouter.post('/upload', upload.fields([
     , (req: express.Request, res: express.Response) => {
         let img = '';
         let r: any = req.files;
-        let imgName = r.files.img.path + r.files.img.mimetype.split('/')[1];
-        let vidName = r.files.vid.path + r.files.vid.mimetype.split('/')[1];
+        let imgName = r.img[0].filename + "." + r.img[0].mimetype.split('/')[1];
+        let vidName = r.vid[0].filename + "." + r.vid[0].mimetype.split('/')[1];
+
+        // console.log(req.body);
+        // console.log(r);
+        // console.log(makeLink(r.img[0].path, imgName, res));
+        // return res.status(200).send({
+        //     data: 'done'
+        // });
 
         let successStory = new SuccessModel({
             name: req.body.name,
@@ -196,8 +206,8 @@ StandUpIndiaRouter.post('/upload', upload.fields([
             phone: req.body.phone,
             message: req.body.message,
             email: req.body.email,
-            pic: makeLink(r.files.img.path, imgName, res),
-            vid: makeLink(r.files.vid.path, vidName, res),
+            pic: makeLink(r.img[0].path, imgName, res),
+            vid: makeLink(r.vid[0].path, vidName, res),
             businessNature: req.body.businessNature,
             firstTime: req.body.firstTime,
             location: req.body.location,
@@ -211,11 +221,15 @@ StandUpIndiaRouter.post('/upload', upload.fields([
             brief: req.body.brief
         })
         successStory.save((err: Error) => {
+            console.log('saddas');
             if (err)
                 return res.status(500).send({
                     data: err
                 });
-            console.log("Added: ", name);
+            // console.log("Added: ", name);
+            return res.status(200).send({
+                data: 'Done here'
+            });
         });
         // dbx.filesUpload({
         //     contents: imgName,
