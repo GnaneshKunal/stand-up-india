@@ -37,6 +37,7 @@ export function getDocs(search: { search: string }) {
 }
 
 export function successSubmit(form: any) {
+    console.log(form);
     return (dispatch: any) => {
         const formData = new FormData();
         formData.append("bank", form.bank);
@@ -53,6 +54,9 @@ export function successSubmit(form: any) {
         formData.append("img", form.pic);
         formData.append("vid", form.vid);
         formData.append("year", form.year);
+        formData.append("pincode", form.pincode);
+        formData.append("place", form.place);
+        formData.append("state", form.state);
 
         axios.post('http://localhost:8080/api/upload', formData, {
             headers: { 'X-Requested-With': 'XMLHttpRequest' }

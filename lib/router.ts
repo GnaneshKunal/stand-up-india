@@ -5,6 +5,7 @@ import { Dropbox } from 'dropbox';
 import { map, compact } from 'lodash';
 import * as multer from 'multer';
 import SuccessModel from './successModel';
+
 let upload = multer({ dest: '/tmp' });
 
 const dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
@@ -155,8 +156,11 @@ StandUpIndiaRouter.post('/form', (req: express.Request, res: express.Response) =
 
 function makeLink(path: string, name: string, res: express.Response) {
     let link = '';
+
+    const data = fs.readFileSync(path);
+
     dbx.filesUpload({
-        contents: path,
+        contents: data,
         path: '/success_upload/' + name,
         mute: true,
         mode: { '.tag': 'add' }
@@ -180,84 +184,103 @@ function makeLink(path: string, name: string, res: express.Response) {
                 data: err
             })
         })
+
+    // });
 }
 
 StandUpIndiaRouter.post('/upload', upload.fields([
     { name: 'img' },
     { name: 'vid' }
 ])
-    // upload.single('img'), upload.single('vid')
     , (req: express.Request, res: express.Response) => {
         let img = '';
         let r: any = req.files;
         let imgName = r.img[0].filename + "." + r.img[0].mimetype.split('/')[1];
         let vidName = r.vid[0].filename + "." + r.vid[0].mimetype.split('/')[1];
 
-        // console.log(req.body);
-        // console.log(r);
-        // console.log(makeLink(r.img[0].path, imgName, res));
-        // return res.status(200).send({
-        //     data: 'done'
-        // });
-
-        let successStory = new SuccessModel({
-            name: req.body.name,
-            businessName: req.body.businessName,
-            phone: req.body.phone,
-            message: req.body.message,
-            email: req.body.email,
-            pic: makeLink(r.img[0].path, imgName, res),
-            vid: makeLink(r.vid[0].path, vidName, res),
-            businessNature: req.body.businessNature,
-            firstTime: req.body.firstTime,
-            location: req.body.location,
-            place: req.body.place,
-            pincode: req.body.pincode,
-            district: req.body.district,
-            state: req.body.state,
-            bank: req.body.bank,
-            year: req.body.year,
-            loan: req.body.loan,
-            brief: req.body.brief
+        let imgUrl = '';
+        let vidUrl = '';
+        const data = fs.readFileSync(r.img[0].path);
+        dbx.filesUpload({
+            contents: data,
+            path: '/success_upload/' + imgName,
+            mute: true,
+            mode: { '.tag': 'add' }
         })
-        successStory.save((err: Error) => {
-            console.log('saddas');
-            if (err)
+            .then((response: any) => {
+                dbx.sharingCreateSharedLink({ path: response.path_lower })
+                    .then((response2: any) => {
+                        imgUrl = response2.url;
+                        const data = fs.readFileSync(r.vid[0].path);
+                        dbx.filesUpload({
+                            contents: data,
+                            path: '/success_upload/' + vidName,
+                            mute: true,
+                            mode: { '.tag': 'add' }
+                        })
+                            .then((response: any) => {
+                                dbx.sharingCreateSharedLink({ path: response.path_lower })
+                                    .then((response2: any) => {
+                                        vidUrl = response2.url;
+
+                                        let successStory = new SuccessModel({
+                                            name: req.body.name,
+                                            businessName: req.body.businessName,
+                                            phone: req.body.phone,
+                                            message: req.body.message,
+                                            email: req.body.email,
+                                            pic: imgUrl,
+                                            vid: vidUrl,
+                                            businessNature: req.body.businessNature,
+                                            firstTime: req.body.firstTime,
+                                            location: req.body.location,
+                                            place: req.body.place,
+                                            pincode: req.body.pincode,
+                                            district: req.body.district,
+                                            state: req.body.state,
+                                            bank: req.body.bank,
+                                            year: req.body.year,
+                                            loan: req.body.loan,
+                                            brief: req.body.brief
+                                        })
+                                        successStory.save((err: Error) => {
+                                            console.log('saddas');
+                                            if (err)
+                                                return res.status(500).send({
+                                                    data: err
+                                                });
+                                            return res.status(200).send({
+                                                data: 'Done here'
+                                            });
+                                        });
+
+                                    })
+                                    .catch((err: Error) => {
+                                        return res.status(500).send({
+                                            data: err
+                                        })
+                                    })
+                            })
+                            .catch((err: any) => {
+                                console.log(err);
+                                return res.status(500).send({
+                                    data: err
+                                })
+                            })
+                    })
+                    .catch((err: Error) => {
+                        return res.status(500).send({
+                            data: err
+                        })
+                    })
+            })
+            .catch((err: any) => {
+                console.log(err);
                 return res.status(500).send({
                     data: err
-                });
-            // console.log("Added: ", name);
-            return res.status(200).send({
-                data: 'Done here'
-            });
-        });
-        // dbx.filesUpload({
-        //     contents: imgName,
-        //     path: '/success_upload/' + imgName,
-        //     mute: true,
-        //     mode: { '.tag': 'add' }
-        // })
-        //     .then((res: any) => {
-        //         dbx.sharingCreateSharedLink({ path: res.path_lower })
-        //             .then((res: any) => {
+                })
+            })
 
-        //             })
-        //             .catch((err: Error) => {
-        //                 return res.status(500).send({
-        //                     data: err
-        //                 });
-        //             })
-        //     })
-        //     .catch((err: Error) => {
-        //         return res.status(500).send({
-        //             data: err
-        //         });
-        //     })
-        // let r: any = req.files;
-        // console.log(req.body);
-        // return res.status(200).send({
-        //     data: 'done'
-        // });
     });
 
 export default StandUpIndiaRouter;
