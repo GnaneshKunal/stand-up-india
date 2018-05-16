@@ -5,6 +5,7 @@ import ContactForm from './ContactForm';
 import Team from './Team';
 import Services from './Services';
 import ImageSlideShow from './ImageSlideShow';
+import HomeImageSlideShow from './HomeImageSlideShow';
 import AboutJourney from './AboutJourney';
 
 interface IHomePageProps {
@@ -38,6 +39,9 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
 
                     {/* Team */}
                     <Team />
+
+                    {/* Home Image Slide Show  */}
+                    <HomeImageSlideShow />
 
                     {/*-- Clients */}
                     <section className="py-5">
