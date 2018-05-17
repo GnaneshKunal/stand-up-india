@@ -10,7 +10,9 @@ import {
     BranchWiseHeaders,
     BranchWiseData,
     ApplicationHeaders,
-    ApplicationData
+    ApplicationData,
+    CategoryWiseHeaders,
+    CategoryWiseData
 } from '../lib/bankData';
 
 interface ILoanSanctionedState {
@@ -81,7 +83,7 @@ export default class LoanSanctioned extends React.Component<{}, ILoanSanctionedS
             </div>);
     }
 
-    makePickedApplications() {
+    public makePickedApplications() {
 
         let mData: any = [];
         forEach(ApplicationData, (d: any) => {
@@ -101,6 +103,25 @@ export default class LoanSanctioned extends React.Component<{}, ILoanSanctionedS
 
     }
 
+    public makeCategoryWiseBreakup() {
+        let mData: any = [];
+        forEach(CategoryWiseData, (d: any) => {
+            mData.push(
+                zipObject(CategoryWiseHeaders, d.split('\t')
+                ));
+        })
+        return (
+            <div>
+                <h1>StandUp India - Category Wise Breakup</h1>
+                <Table className="table" id="table" data={
+                    mData}
+                    filterable={
+                        CategoryWiseHeaders
+                    } />
+            </div>);
+    }
+
+
     public handleChange(selectedOption: any) {
         console.log(selectedOption);
         this.setState({ selectedView: selectedOption })
@@ -115,6 +136,8 @@ export default class LoanSanctioned extends React.Component<{}, ILoanSanctionedS
             return this.makeBranchWise();
         else if (val === 2)
             return this.makePickedApplications();
+        else if (val === 3)
+            return this.makeCategoryWiseBreakup();
         else
             return <br />
     }

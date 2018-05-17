@@ -671,3 +671,14 @@ export const ApplicationData = [
     "ST/2017/Nov/0002920	Anand Trailores	K Anand	9704865268	Male	No	SC	Manufacturing	Picked up for Processing	1000000	Standard	Vijaya Bank	VIJB0004065 : MADANPALLE ANDHRA PRADESH",
     "ST/2017/Oct/0002486	SRI SRI AGARABATTI MANUFACTURIJNG INDUSTRY	P LATHA P SANKARBABU	9100412635	Female	Yes	OBC	Manufacturing	Picked up for Processing	6856900	Standard	Vijaya Bank	VIJB0004108 : PUTTUR"
 ];
+
+export const CategoryWiseHeaders = [
+    "Nature of Business Activity", "SC Female", "SC Male", "SC Total", "ST Female", "ST Male", "ST Total", "General Female", "Minority Community Female", "OBC Female", "Total"
+];
+
+export const CategoryWiseData = [
+    "Manufacturing Sector	18	13	31	1	2	3	51	6	26	117",
+    "Service Sector	146	47	193	51	23	74	108	1	22	398",
+    "Trading Sector	16	8	24		2	2	74	1	12	113",
+    "Grand Total	180	68	248	52	27	79	233	8	60	628"
+];
