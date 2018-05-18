@@ -241,7 +241,7 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
                         <div className="clearfix"></div>
                         <div className="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                            <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">SUBMIT</button>
                         </div>
                     </div>
                 </form>

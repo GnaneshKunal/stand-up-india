@@ -243,16 +243,16 @@ StandUpIndiaRouter.post('/upload', upload.fields([
                                             loan: req.body.loan,
                                             brief: req.body.brief
                                         })
-                                        successStory.save((err: Error) => {
-                                            console.log('saddas');
-                                            if (err)
-                                                return res.status(500).send({
-                                                    data: err
-                                                });
-                                            return res.status(200).send({
-                                                data: 'Done here'
-                                            });
-                                        });
+					successStory.save()
+					    .then(() => {
+						return res.status(200).send({
+						    data: 'Done here'
+						});
+					    }).catch((err: Error) => {
+						return res.status(500).send({
+						    data: err
+						});
+					    });
 
                                     })
                                     .catch((err: Error) => {
