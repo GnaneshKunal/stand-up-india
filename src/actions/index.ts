@@ -36,8 +36,7 @@ export function getDocs(search: { search: string }) {
     };
 }
 
-export function successSubmit(form: any) {
-    console.log(form);
+export function submitSuccessForm(form: any) {
     return (dispatch: any) => {
         const formData = new FormData();
         formData.append("bank", form.bank);
