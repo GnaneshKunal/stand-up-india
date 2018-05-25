@@ -15,7 +15,7 @@ export default () => {
                         <ul className="timeline">
                             <li>
                                 <div className="timeline-image">
-                                    <img className="rounded-circle img-fluid" src="https://www.dropbox.com/s/vmtbv7thf5r95lu/modi.jpg?raw=1" alt="" />
+                                    <img className="rounded-circle img-fluid" src="img/modi.jpg" alt="" />
                                 </div>
                                 <div className="timeline-panel">
                                     <div className="timeline-heading">
@@ -38,7 +38,7 @@ export default () => {
                             </li>
                             <li className="timeline-inverted">
                                 <div className="timeline-image">
-                                    <img className="rounded-circle img-fluid" src="https://www.dropbox.com/s/460ohjdi4uw3bui/chandrababu.jpg?raw=1" alt="" />
+                                    <img className="rounded-circle img-fluid" src="img/chandrababu.jpg" alt="" />
                                 </div>
                                 <div className="timeline-panel">
                                     <div className="timeline-heading">
@@ -79,7 +79,7 @@ export default () => {
 
                             <li>
                                 <div className="timeline-image">
-                                    <img className="rounded-circle img-fluid" src="https://www.dropbox.com/s/7c5ctwiiyclv3or/prad.png?raw=1" alt="" />
+                                    <img className="rounded-circle img-fluid" src="img/prad.png" alt="" />
                                 </div>
                                 <div className="timeline-panel">
                                     <div className="timeline-heading">
