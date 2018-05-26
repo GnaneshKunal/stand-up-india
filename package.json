@@ -8,7 +8,8 @@
     "tsc": "tsc",
     "start": "node ./dist/index.js",
     "dev": "nodemon ./dist/index.js",
-    "postinstall": "tsc && webpack"
+    "postinstall": "tsc && webpack",
+    "webpack": "webpack -w"
   },
   "engines": {
     "node": ">=8.2.1",
@@ -35,6 +36,7 @@
     "@types/react-redux": "^4.4.47",
     "@types/react-router-dom": "^4.0.7",
     "@types/react-select": "^1.2.6",
+    "@types/react-slick": "^0.23.0",
     "@types/reactable": "^0.14.2",
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",

@@ -130,6 +130,10 @@ class HomeImageSlideShow extends React.Component<IHomeImageSlideShowProps, {}> {
                                 <div className="carousel-item">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/fgzseap25mt7nl1/WhatsApp%20Image%202018-05-16%20at%2018.59.42.jpeg?raw=1" />
                                 </div>
+
+                                <div className="carousel-item">
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/33s5zjrhiqe9osk/index3.png?raw=1" />
+                                </div>
                             </div>
                             <div className="p-1">
                             </div>

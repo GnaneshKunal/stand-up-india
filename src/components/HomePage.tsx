@@ -1,3 +1,4 @@
+/// <reference path="../types/index.d.ts" />
 import * as React from 'react';
 
 import Footer from './Footer';
@@ -49,7 +50,7 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                             <div className="row">
                                 <div className="col-md-3 col-sm-6">
                                     <a href="#">
-                                        <img className="img-fluid d-block mx-auto" src="img/indianbank.pn=1" alt="" />
+                                        <img className="img-fluid d-block mx-auto" src="img/indianbank.png" alt="" />
                                     </a>
                                 </div>
                                 <div className="col-md-3 col-sm-6">

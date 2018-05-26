@@ -9,3 +9,16 @@ div.center-cropped img {
     position: relative;
     transform: translateY(-50%);
 }
+
+
+.image-gallery-slides {
+  text-align: center;
+}
+
+.image-gallery-slide {
+  background: #fff;
+  img {
+    width: auto;
+    height: 200px;
+  }
+}
