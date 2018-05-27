@@ -9,7 +9,7 @@ import ImageSlideShow from './ImageSlideShow';
 import HomeImageSlideShow from './HomeImageSlideShow';
 import AboutJourney from './AboutJourney';
 
-import Timer from 'react-t-minus-timer';
+import CountDown from './CountDown';
 
 interface IHomePageProps {
 }
@@ -18,7 +18,6 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
     public render(): JSX.Element {
         return (
             <div>
-		<Timer endTime={'2018-06-01T00:00:00.000+07:00'}/>
                 <div id="page-top">
                     {/* Header */}
 
@@ -32,6 +31,8 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                         </div>
                     </header>
 
+		    <CountDown />
+		    
                     {/*services*/}
                     <Services />
 

@@ -123,15 +123,19 @@ class HomeImageSlideShow extends React.Component<IHomeImageSlideShowProps, {}> {
                                 <p></p>
                             </div>
                             <div className="p-1">
-				 <div className="carousel-item active thumb-post">
+				<div className="carousel-item active thumb-post">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/no49nhzcgysvxsp/WhatsApp%20Image%202018-05-16%20at%2018.59.19.jpeg?raw=1" />
-                                    </div>
-                                    <div className="carousel-item">
+                                </div>
+                                <div className="carousel-item">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/fgzseap25mt7nl1/WhatsApp%20Image%202018-05-16%20at%2018.59.42.jpeg?raw=1" />
-                                    </div>
-				    <div className="carousel-item thumb-post">
+                                </div>
+				<div className="carousel-item thumb-post">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/ulhkcivk7i808fz/meet.jpg?raw=1" />
-                                    </div>
+                                </div>
+				<div className="carousel-item thumb-post">
+                                    <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/lpmckpfdgy1oqui/rbi.jpg?raw=1" />
+                                </div>
+				
 			    </div>
 			    <div className="p-1">
 			    </div>

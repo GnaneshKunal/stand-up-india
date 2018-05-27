@@ -5,6 +5,7 @@ import { Dropbox } from 'dropbox';
 import { map, compact } from 'lodash';
 import * as multer from 'multer';
 import SuccessModel from './successModel';
+import newsModel from './news';
 
 let upload = multer({ dest: '/tmp' });
 
@@ -22,59 +23,6 @@ function mapFilesToLinks(files: any, links: any) {
             });
     })
 }
-
-// async function fetch(path: string, res: express.Response) {
-//     let links: Array<string> = [];
-//     let cursor = '';
-//     dbx.filesListFolder({ path, limit: 1 })
-//         .then((files: any) => {
-//             let flag = true;
-//             cursor = files.cursor;
-//             map(files.entries, (file: any) => {
-//                 dbx.sharingCreateSharedLink({ path: file.path_lower })
-//                     .then((fileMetaData: any) => {
-//                         console.log(fileMetaData)
-//                         links.push(fileMetaData.url.split("?")[0] + "?raw=1");
-//                         console.log(links);
-//                     }).catch((err: Error) => {
-//                         return res.status(500).send({
-//                             data: err
-//                         });
-//                     });
-//             });
-//             console.log(cursor);
-//             while (flag) {
-//                 dbx.filesListFolderContinue({ cursor })
-//                     .then((files: any) => {
-
-//                         map(files.entries, (file: any) => {
-//                             if (files.entries.length == 0) {
-//                                 flag = false;
-//                                 console.log(cursor);
-//                                 return res.status(200).send({
-//                                     data: links
-//                                 });
-//                             } else
-//                                 dbx.sharingCreateSharedLink({ path: file.path_lower })
-//                                     .then((fileMetaData: any) => {
-//                                         links.push(fileMetaData.url.split("?")[0] + "?raw=1");
-//                                     });
-//                         })
-//                     })
-//                     .catch((err: Error) => {
-//                         return res.status(500).send({
-//                             data: err
-//                         });
-//                     });
-
-//             }
-//         })
-//         .catch((err: Error) => {
-//             return res.status(500).send({
-//                 data: err
-//             });
-//         });
-// }
 
 function partitionLinks(arr: any, path: string) {
     return compact(map(arr, (file: any) => {
@@ -187,6 +135,25 @@ function makeLink(path: string, name: string, res: express.Response) {
 
     // });
 }
+
+StandUpIndiaRouter.post('/add-news', (req: express.Request, res: express.Response) => {
+    let news = new newsModel({
+	title: req.body.title,
+	description: req.body.description,
+	done: req.body.done
+    });
+    news.save()
+	.then(() => {
+	    return res.status(200).send({
+		data: 'Added'
+	    });
+	})
+	.catch(err => {
+	    return res.status(500).send({
+		data: err
+	    });
+	});
+});
 
 StandUpIndiaRouter.post('/upload', upload.fields([
     { name: 'img' },
