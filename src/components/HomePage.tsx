@@ -9,7 +9,7 @@ import ImageSlideShow from './ImageSlideShow';
 import HomeImageSlideShow from './HomeImageSlideShow';
 import AboutJourney from './AboutJourney';
 
-import CountDown from './CountDown';
+import Events from './Events';
 
 interface IHomePageProps {
 }
@@ -31,7 +31,7 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                         </div>
                     </header>
 
-		    <CountDown />
+		    <Events />
 		    
                     {/*services*/}
                     <Services />
