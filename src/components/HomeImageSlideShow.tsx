@@ -123,32 +123,31 @@ class HomeImageSlideShow extends React.Component<IHomeImageSlideShowProps, {}> {
                                 <p></p>
                             </div>
                             <div className="p-1">
-
-                                <div className="carousel-item active thumb-post">
+				 <div className="carousel-item active thumb-post">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/no49nhzcgysvxsp/WhatsApp%20Image%202018-05-16%20at%2018.59.19.jpeg?raw=1" />
-                                </div>
-                                <div className="carousel-item thumb-post">
+                                    </div>
+                                    <div className="carousel-item">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/fgzseap25mt7nl1/WhatsApp%20Image%202018-05-16%20at%2018.59.42.jpeg?raw=1" />
-                                </div>
-				<div className="carousel-item thumb-post">
+                                    </div>
+				    <div className="carousel-item thumb-post">
                                     <img className="d-block w-100" style={{ maxWidth: '800px', maxHeight: '800px' }} src="https://www.dropbox.com/s/ulhkcivk7i808fz/meet.jpg?raw=1" />
-                                </div>
-                            </div>
-                            <div className="p-1">
-                            </div>
+                                    </div>
+			    </div>
+			    <div className="p-1">
+			    </div>
                         </div>
-                    </div>
+		    </div>
 
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
+		    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span className="sr-only">Previous</span>
                 </a>
                 <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
+		    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span className="sr-only">Next</span>
                 </a>
-            </div>
+	    </div>
         );
     }
 }
