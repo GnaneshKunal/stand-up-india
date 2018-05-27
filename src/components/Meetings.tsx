@@ -37,11 +37,13 @@ class Meetings extends React.Component<IMeetingsProps, {}> {
 
     thumbnailPicTemplate(img: string/* , name: string, short: string */): JSX.Element {
         return (
-            <div className="col-lg-4 col-md-4 col-xs-6">
+            <div className="col-lg-6 col-md-6 col-xs-6">
                 <a href="#" className="d-block mb-4 h-100">
-                    <div className="center-cropped">
+                    {/* <div className=" center-cropped thumb-post">
                         <img src={img} alt="" />
-                    </div>
+			</div> */}
+		    <div className={"ratio"} style={{backgroundImage: `url(${img})`}}>
+		    </div>
                 </a>
             </div>
         );

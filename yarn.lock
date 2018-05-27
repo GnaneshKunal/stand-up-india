@@ -2924,6 +2924,10 @@ react-select@^1.2.1:
     prop-types "^15.5.8"
     react-input-autosize "^2.1.2"
 
+react-t-minus-timer@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-t-minus-timer/-/react-t-minus-timer-0.1.2.tgz#f09e55d0307274191341ac3e8d2fb16354a283d8"
+
 react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"

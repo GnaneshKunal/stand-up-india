@@ -40,11 +40,13 @@ class SuccessStories extends React.Component<ISuccessStoriesProps, {}> {
         return (
             <div className="col-lg-4 col-md-4 col-xs-6">
                 <a href="#" className="d-block mb-4 h-100">
-                    <div className="center-cropped">
+                    {/* <div className="center-cropped thumb-post">
                         <img src={img} alt="" />
-                    </div>
+			</div> */}
+		    <div className={"ratio"} style={{backgroundImage: `url(${img})`}}>
+		    </div>
                 </a>
-            </div>
+	    </div>
         );
     }
 

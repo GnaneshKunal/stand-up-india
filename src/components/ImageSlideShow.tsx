@@ -171,6 +171,9 @@ class ImageSlideShow extends React.Component<IImageSlideShowProps, {}> {
                                 <div className="carousel-item">
                                     <img style={{ maxWidth: '800px', maxHeight: '800px' }} className="d-block w-100" src="https://www.dropbox.com/s/w18ghmkl3d6orm7/David%20Brainard%20-%20m_DSC_0055.JPG?raw=1" alt="Sixth slide" />
                                 </div>
+				<div className="carousel-item">
+                                    <img style={{ maxWidth: '800px', maxHeight: '800px' }} className="d-block w-100" src="https://www.dropbox.com/s/ulhkcivk7i808fz/meet.jpg?raw=1" alt="Sixth slide" />
+                                </div>		
                             </div>
                             <div className="p-1">
                             </div>
