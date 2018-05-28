@@ -184,6 +184,20 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
 					    <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/fhpy3mz0xc5gd58/yes-bank.png?raw=1" alt="yes-bank"/>
 					</div>
 					<div className="col-xs-4 pad-r">
+					    <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/8h3vrdcgxx34kkd/andhra-bank.png?raw=1" alt="UBI-bank"/>
+					</div>
+				    </div>
+				</div>
+
+				<div className="carousel-item">
+				    <div className="row">
+					<div className="col-xs-4 pad-r">
+					    <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/ja7vzo9tgidjgu3/indian-bank.png?raw=1" alt="uco-bank"/>
+					</div>
+					<div className="col-xs-4 pad-r">
+					    <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/p9f9o27kz5pjfou/union-bank.jpg?raw=1" alt="union-bank"/>
+					</div>
+					<div className="col-xs-4 pad-r">
 					    <img className="img-fluid d-block mx-auto" src="https://www.dropbox.com/s/iurgw7ov44uqk8v/UBI.jpg?raw=1" alt="UBI-bank"/>
 					</div>
 				    </div>
