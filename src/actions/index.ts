@@ -56,7 +56,7 @@ export function submitSuccessForm(form: any) {
         formData.append("pincode", form.pincode);
         formData.append("place", form.place);
         formData.append("state", form.state);
-	fromData.append("employees", form.employees);
+	formData.append("employees", form.employees);
 
         axios.post('http://localhost:8080/api/upload', formData, {
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
