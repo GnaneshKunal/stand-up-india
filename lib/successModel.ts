@@ -18,7 +18,8 @@ const successModelSchema: mongoose.Schema = new mongoose.Schema({
     bank: String,
     year: String,
     loan: String,
-    brief: String
+    brief: String,
+    employees: String
 });
 
 const SuccessModel = mongoose.model('successmodel', successModelSchema);

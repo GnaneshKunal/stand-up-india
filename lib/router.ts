@@ -210,7 +210,8 @@ StandUpIndiaRouter.post('/upload', upload.fields(
                                             bank: req.body.bank,
                                             year: req.body.year,
                                             loan: req.body.loan,
-                                            brief: req.body.brief
+                                            brief: req.body.brief,
+					    employees: req.body.employees
                                         })
 					successStory.save()
 					    .then(() => {

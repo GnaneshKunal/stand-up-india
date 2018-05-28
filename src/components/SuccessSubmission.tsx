@@ -29,7 +29,8 @@ interface ISuccessSubmissionState {
     bank: string,
     year: string,
     loan: string,
-    brief: string
+    brief: string,
+    employees: string
 }
 
 interface Idetails {
@@ -62,7 +63,8 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
             bank: '',
             year: '',
             loan: '',
-            brief: ''
+            brief: '',
+	    employees: ''
         };
 
     }
@@ -143,6 +145,18 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
                                 <p className="help-block text-danger"></p>
                             </div>
 			    
+			    
+                            <div className="form-group">
+                                <input className="form-control" id="loan" name="loan" type="text" placeholder="Loan sanctioned Amount"
+				required
+                                       value={this.state.loan}
+                                       onChange={event => {
+					       this.setState({ loan: event.target.value })
+                                       }}
+                                />
+                                <p className="help-block text-danger"></p>
+                            </div>
+			    
                             <div className="form-group">
                                 <input className="form-control" id="bank" type="text" name="bank" placeholder="Bank Name and Branch"
 				required
@@ -155,11 +169,22 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
                             </div>
 			    
                             <div className="form-group">
-                                <input className="form-control" id="loan" name="loan" type="text" placeholder="Loan sanctioned Amount"
+                                <input className="form-control" id="employees" type="text" name="employees" placeholder="No. of Employees"
 				required
-                                       value={this.state.loan}
+                                       value={this.state.employees}
                                        onChange={event => {
-					       this.setState({ loan: event.target.value })
+					       this.setState({ bank: event.target.value })
+                                       }}
+                                />
+                                <p className="help-block text-danger"></p>
+                            </div>
+			    
+                            <div className="form-group">
+                                <input className="form-control" id="year" name="year" type="text" placeholder="Date of Launch"
+				required
+                                       value={this.state.year}
+                                       onChange={event => {
+					       this.setState({ year: event.target.value })
                                        }}
                                 />
                                 <p className="help-block text-danger"></p>
@@ -215,16 +240,6 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
 					       this.setState({ pincode: event.target.value })
                                        }}
 
-                                />
-                                <p className="help-block text-danger"></p>
-                            </div>
-                            <div className="form-group">
-                                <input className="form-control" id="year" name="year" type="text" placeholder="Year of Launch"
-				required
-                                       value={this.state.year}
-                                       onChange={event => {
-					       this.setState({ year: event.target.value })
-                                       }}
                                 />
                                 <p className="help-block text-danger"></p>
                             </div>
