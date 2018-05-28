@@ -43,8 +43,8 @@ div.center-cropped img {
 }
 
 .pad-r {
-    padding-left: 8em;
-    /* padding-right: 8em; */
+    padding-left: 4em;
+    padding-right: 4em;
 }
 
 .pad-r img {
