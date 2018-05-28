@@ -155,11 +155,13 @@ StandUpIndiaRouter.post('/add-news', (req: express.Request, res: express.Respons
 	});
 });
 
-StandUpIndiaRouter.post('/upload', upload.fields([
+StandUpIndiaRouter.post('/upload', upload.fields(
+    [
     { name: 'img' },
     { name: 'vid' }
-])
-    , (req: express.Request, res: express.Response) => {
+    ]), (req: express.Request, res: express.Response) => {
+
+	console.log(req.files);
         let img = '';
         let r: any = req.files;
         let imgName = r.img[0].filename + "." + r.img[0].mimetype.split('/')[1];
@@ -167,7 +169,8 @@ StandUpIndiaRouter.post('/upload', upload.fields([
 
         let imgUrl = '';
         let vidUrl = '';
-        const data = fs.readFileSync(r.img[0].path);
+			    const data = fs.readFileSync(r.img[0].path);
+			    
         dbx.filesUpload({
             contents: data,
             path: '/success_upload/' + imgName,
@@ -189,7 +192,6 @@ StandUpIndiaRouter.post('/upload', upload.fields([
                                 dbx.sharingCreateSharedLink({ path: response.path_lower })
                                     .then((response2: any) => {
                                         vidUrl = response2.url;
-
                                         let successStory = new SuccessModel({
                                             name: req.body.name,
                                             businessName: req.body.businessName,
