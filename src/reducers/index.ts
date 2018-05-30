@@ -6,6 +6,7 @@ import formReducer from './form';
 import meetingsPicsReducer from './meetingsPics';
 import uploadPicsReducer from './uploadPics';
 import successSubmitReducer from './successSubmit';
+import successReducer from './success';
 
 const rootReducer: redux.Reducer<any> = redux.combineReducers({
     // state: (state = {}) => state
@@ -15,7 +16,8 @@ const rootReducer: redux.Reducer<any> = redux.combineReducers({
     form: formReducer,
     meetingsPics: meetingsPicsReducer,
     successSubmit: successSubmitReducer,
-    uploadPics: uploadPicsReducer
+    uploadPics: uploadPicsReducer,
+    success: successReducer
 });
 
 export default rootReducer;

@@ -7,7 +7,9 @@ import {
     SEND_FORM_DETAILS,
     MEETINGS_PICS,
     UPLOAD_PICS,
-    SUCCESS_SUBMIT
+    SUCCESS_SUBMIT,
+    SUCCESS_LIST,
+    SUCCESS_DOC
 } from './types';
 
 interface Idetails {
@@ -38,6 +40,7 @@ export function getDocs(search: { search: string }) {
 
 export function submitSuccessForm(form: any) {
     return (dispatch: any) => {
+        console.log(form);
         const formData = new FormData();
         formData.append("bank", form.bank);
         formData.append("brief", form.brief);
@@ -56,7 +59,7 @@ export function submitSuccessForm(form: any) {
         formData.append("pincode", form.pincode);
         formData.append("place", form.place);
         formData.append("state", form.state);
-	formData.append("employees", form.employees);
+        formData.append("employees", form.employees);
 
         axios.post('http://localhost:8080/api/upload', formData, {
             headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -109,6 +112,38 @@ export function getDoc(docID: string) {
                 console.log(err);
             });
     };
+}
+
+export function getSuccessList() {
+    return (dispatch: any) => {
+        return axios.get(`${ROOT_URL}/api/success-list`)
+            .then((response: any) => {
+                dispatch({
+                    type: SUCCESS_LIST,
+                    payload: response.data.data
+                });
+            })
+            .catch((err: Error) => {
+                // tslint:disable-next-line
+                console.log(err);
+            });
+    }
+}
+
+export function getSuccessDoc(docID: string) {
+    return (dispatch: any) => {
+        return axios.get(`${ROOT_URL}/api/success-doc?id=${docID}`)
+            .then((response: any) => {
+                dispatch({
+                    type: SUCCESS_DOC,
+                    payload: response.data.data
+                });
+            })
+            .catch((err: Error) => {
+                // tslint:disable-next-line
+                console.log(err);
+            });
+    }
 }
 
 export function getSuccessPics() {

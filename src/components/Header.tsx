@@ -29,6 +29,9 @@ export default () => {
                                 <li className="nav-item">
                                     <Link className="nav-link js-scroll-trigger" to="/success-submit">Success Submit</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link js-scroll-trigger" to="/success-list">Success List</Link>
+                                </li>
 
                                 <li className="nav-item">
                                     <Link className="nav-link js-scroll-trigger" to="/loan-sanctioned">Loan Sanctioned</Link>

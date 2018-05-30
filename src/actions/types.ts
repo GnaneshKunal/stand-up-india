@@ -5,3 +5,5 @@ export const SEND_FORM_DETAILS = 'SEND_FORM_DETAILS';
 export const MEETINGS_PICS = 'MEETINGS_PICS';
 export const UPLOAD_PICS = 'UPLOAD_PICS';
 export const SUCCESS_SUBMIT = 'SUCCESS_SUBMIT';
+export const SUCCESS_LIST = 'SUCCESS_LIST';
+export const SUCCESS_DOC = 'SUCCESS_DOC';

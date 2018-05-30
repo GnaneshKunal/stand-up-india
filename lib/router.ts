@@ -138,30 +138,67 @@ function makeLink(path: string, name: string, res: express.Response) {
 
 StandUpIndiaRouter.post('/add-news', (req: express.Request, res: express.Response) => {
     let news = new newsModel({
-	title: req.body.title,
-	description: req.body.description,
-	done: req.body.done
+        title: req.body.title,
+        description: req.body.description,
+        done: req.body.done
     });
     news.save()
-	.then(() => {
-	    return res.status(200).send({
-		data: 'Added'
-	    });
-	})
-	.catch(err => {
-	    return res.status(500).send({
-		data: err
-	    });
-	});
+        .then(() => {
+            return res.status(200).send({
+                data: 'Added'
+            });
+        })
+        .catch(err => {
+            return res.status(500).send({
+                data: err
+            });
+        });
 });
+
+
+StandUpIndiaRouter.get('/success-list', (_, res: express.Response) => {
+
+    SuccessModel.find({})
+        .exec((err: Error, docs: Array<any>) => {
+            if (err)
+                return res.status(500).send({
+                    data: err
+                });
+            return res.status(200).send({
+                data: docs
+            });
+        });
+});
+
+StandUpIndiaRouter.get('/success-doc', (req: express.Request, res: express.Response) => {
+    const appID = req.query.id;
+    if (!appID)
+        return res.status(400).send({
+            data: 'Plase specify an id'
+        });
+    SuccessModel.findById(appID, (err: any, doc: any) => {
+        if (err)
+            return res.status(500).send({
+                data: err
+            });
+        if (!doc)
+            return res.status(404).send({
+                data: 'No doc found with the given ID'
+            });
+        return res.status(200).send({
+            data: doc
+        });
+    });
+});
+
 
 StandUpIndiaRouter.post('/upload', upload.fields(
     [
-    { name: 'img' },
-    { name: 'vid' }
+        { name: 'img' },
+        { name: 'vid' }
     ]), (req: express.Request, res: express.Response) => {
 
-	console.log(req.files);
+        console.log(req.files);
         let img = '';
         let r: any = req.files;
         let imgName = r.img[0].filename + "." + r.img[0].mimetype.split('/')[1];
@@ -169,8 +206,8 @@ StandUpIndiaRouter.post('/upload', upload.fields(
 
         let imgUrl = '';
         let vidUrl = '';
-			    const data = fs.readFileSync(r.img[0].path);
-			    
+        const data = fs.readFileSync(r.img[0].path);
+
         dbx.filesUpload({
             contents: data,
             path: '/success_upload/' + imgName,
@@ -211,18 +248,18 @@ StandUpIndiaRouter.post('/upload', upload.fields(
                                             year: req.body.year,
                                             loan: req.body.loan,
                                             brief: req.body.brief,
-					    employees: req.body.employees
+                                            employees: req.body.employees
                                         })
-					successStory.save()
-					    .then(() => {
-						return res.status(200).send({
-						    data: 'Done here'
-						});
-					    }).catch((err: Error) => {
-						return res.status(500).send({
-						    data: err
-						});
-					    });
+                                        successStory.save()
+                                            .then(() => {
+                                                return res.status(200).send({
+                                                    data: 'Done here'
+                                                });
+                                            }).catch((err: Error) => {
+                                                return res.status(500).send({
+                                                    data: err
+                                                });
+                                            });
 
                                     })
                                     .catch((err: Error) => {

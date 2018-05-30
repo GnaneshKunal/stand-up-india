@@ -30,7 +30,8 @@ interface ISuccessSubmissionState {
     year: string,
     loan: string,
     brief: string,
-    employees: string
+    employees: string,
+    clickSubmit: boolean
 }
 
 interface Idetails {
@@ -64,7 +65,8 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
             year: '',
             loan: '',
             brief: '',
-            employees: ''
+            employees: '',
+            clickSubmit: false
         };
 
     }
@@ -75,11 +77,41 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
 
     public onFormSubmit(event: any) {
         event.preventDefault();
+        this.setState({ clickSubmit: true });
         this.props.submitSuccessForm(this.state);
     }
 
     public onVideoChange(event: any) {
         this.setState({ vid: event.target.files[0] })
+    }
+
+    public generateButton(): JSX.Element {
+        if (!this.state.clickSubmit) {
+            return (
+                <div className="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <small id="passwordHelpInline" className="text-muted">
+                        Please wait till you get the submit message.
+		    </small>
+                    <br />
+                    <br />
+                    <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">SUBMIT</button>
+                </div>
+            );
+        } else {
+            return (
+                <div className="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <small id="passwordHelpInline" className="text-muted">
+                        Please wait till you get the submit message.
+		    </small>
+                    <div className="text-center">
+                        Submitting
+		    </div>
+
+                </div>
+            );
+        }
     }
 
     public generateForm(): JSX.Element {
@@ -270,10 +302,7 @@ class SuccessSubmission extends React.Component<ISuccessSubmissionProps, ISucces
                             </div>
                         </div>
                         <div className="clearfix"></div>
-                        <div className="col-lg-12 text-center">
-                            <div id="success"></div>
-                            <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">SUBMIT</button>
-                        </div>
+                        {this.generateButton()}
                     </div>
                 </form>
             );
