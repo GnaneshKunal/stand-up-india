@@ -27,6 +27,10 @@ export default class HomePage extends React.Component<IHomePageProps, {}> {
                                 <div className="intro-lead-in"><span>Welcome To StandUp India Loans!</span></div>
                                 {/* <div className="intro-heading text-uppercase"><span>Stand-Up India Scheme for financing SC/ST and/or Women Entrepreneurs.</span></div> */}
                                 <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Contact: 9440931705 (AD Brainard)</a>
+                                <br />
+                                <br />
+                                <br />
+                                <a className="btn btn-success btn-xl text-uppercase js-scroll-trigger" href="/api/download-app">Download StandUp <br />India Loans Official App for Android</a>
                             </div>
                         </div>
                     </header>

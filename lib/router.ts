@@ -191,6 +191,9 @@ StandUpIndiaRouter.get('/success-doc', (req: express.Request, res: express.Respo
     });
 });
 
+StandUpIndiaRouter.get('/download-app', (_, res: express.Response) => {
+    return res.download(__dirname + '/../../static/_StandUp_India_Loans_7222452.apk');
+});
 
 StandUpIndiaRouter.post('/upload', upload.fields(
     [
@@ -289,5 +292,7 @@ StandUpIndiaRouter.post('/upload', upload.fields(
             })
 
     });
+
+
 
 export default StandUpIndiaRouter;

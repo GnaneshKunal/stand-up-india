@@ -36,14 +36,10 @@ class successList extends React.Component<ISuccessListProps, {}> {
             <div className="col-lg-6 col-md-6 col-xs-6">
                 <a href={`/success-doc?id=${doc._id}`} className="d-block mb-4 h-100">
                     <div className="card" style={{ width: '18rem' }}>
-
-
                         <div className="ratio card-img-top" style={{ backgroundImage: `url(${img})` }}></div>
-
-                        {/* <img className="card-img-top" src={img} alt="Card image cap" />} */}
                         <div className="card-body">
                             <h5 className="card-title">{doc.businessName}</h5>
-                            <p className="card-text">{doc.brief}</p>
+                            <p className="card-text">{doc.name}</p>
                             <a href="#" className="btn btn-primary">Go</a>
                         </div>
                     </div>
