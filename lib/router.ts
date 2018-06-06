@@ -57,7 +57,7 @@ StandUpIndiaRouter.get('/downloads', (_, res: express.Response) => {
     dbx.sharingGetSharedLinks({})
 	.then((r: any) => {
 	    return res.status(200).send({
-		data: partitionLinksPlain(r.links, '/downloads/'
+		data: partitionLinksPlain(r.links, '/downloads/')
 	    });
 	})
 	.catch((_: any) => {
