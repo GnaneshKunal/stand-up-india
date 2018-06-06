@@ -12,6 +12,7 @@ import SuccessSubmission from './SuccessSubmission';
 import LoanSanctioned from './LoanSanctioned';
 import SuccessList from './success-components/successList';
 import SuccessView from './success-components/successView';
+import Downloads from './Downloads';
 
 const App = (): JSX.Element => (
     <div>
@@ -28,6 +29,7 @@ const App = (): JSX.Element => (
                 <Route exact path='/loan-sanctioned' component={LoanSanctioned} />
                 <Route exact path='/success-list' component={SuccessList} />
                 <Route exact path='/success-doc' component={SuccessView} />
+		<Route exact path='/downloads' component={Downloads} />
             </Switch>
         </main>
         <Footer />

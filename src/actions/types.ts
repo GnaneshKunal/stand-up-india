@@ -7,3 +7,4 @@ export const UPLOAD_PICS = 'UPLOAD_PICS';
 export const SUCCESS_SUBMIT = 'SUCCESS_SUBMIT';
 export const SUCCESS_LIST = 'SUCCESS_LIST';
 export const SUCCESS_DOC = 'SUCCESS_DOC';
+export const GET_DOWNLOAD_FILES = 'GET_DOWNLOAD_FILES';

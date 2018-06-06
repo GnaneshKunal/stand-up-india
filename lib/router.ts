@@ -31,6 +31,14 @@ function partitionLinks(arr: any, path: string) {
     }));
 }
 
+function partitionLinksPlain(arr: any, path: string) {
+    return compact(map(arr, (file: any) => {
+	if (file.path.includes(path))
+	    return file.url.split("?")[0];
+    }));
+}
+
+
 function getPics(path: string, res: express.Response) {
     dbx.sharingGetSharedLinks({})
         .then(function(r: any) {
@@ -44,6 +52,20 @@ function getPics(path: string, res: express.Response) {
             });
         });
 }
+
+StandUpIndiaRouter.get('/downloads', (_, res: express.Response) => {
+    dbx.sharingGetSharedLinks({})
+	.then((r: any) => {
+	    return res.status(200).send({
+		data: partitionLinksPlain(r.links, '/downloads/'
+	    });
+	})
+	.catch((_: any) => {
+	    return res.status(500).send({
+		data: 'Something went wrong'
+	    });
+	});
+});
 
 StandUpIndiaRouter.get('/search', (req: express.Request, res: express.Response) => {
     const query = req.query.q;

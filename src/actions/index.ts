@@ -9,7 +9,8 @@ import {
     UPLOAD_PICS,
     SUCCESS_SUBMIT,
     SUCCESS_LIST,
-    SUCCESS_DOC
+    SUCCESS_DOC,
+    GET_DOWNLOAD_FILES
 } from './types';
 
 interface Idetails {
@@ -35,6 +36,22 @@ export function getDocs(search: { search: string }) {
                 // tslint:disable-next-line
                 console.log(err);
             });
+    };
+}
+
+export function getDownloadFiles() {
+    return (dispatch: any) => {
+	return axios.get(`${ROOT_URL}/api/downloads`)
+	    .then((response: any) => {
+		dispatch({
+		    type: GET_DOWNLOAD_FILES,
+		    payload: response.data.data
+		});
+	    })
+	    .catch((err: Error) => {
+		// tslint:disable-next-line
+		console.log(err);
+	    });
     };
 }
 
