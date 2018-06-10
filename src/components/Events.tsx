@@ -23,7 +23,7 @@ class Events extends React.Component<{}, {}> {
                             <div className="card-body">
                                 <h5 className="card-title">EDP Programme</h5>
                                 <p className="card-text">Entrepreneur Development Programme(EDP) <br />by DIC</p>
-				<img className="img-fluid" src="img/Awareness_Programme.png" />
+				<img className="img-fluid" src="img/EDP_Programme.png" />
 				<br />
                                 <a href="#" className="btn btn-primary">
                                     5th
@@ -37,11 +37,12 @@ class Events extends React.Component<{}, {}> {
                             <div className="card-body">
                                 <h5 className="card-title">Awareness Programme</h5>
                                 <p className="card-text"><small>Awareness programme on Economic support Schemes, Mudra Loans, PMEGP, StartUp India Loans, StandUp India Loans, MSME Loans and MEGA Loans by Microsmartware pvt ltd.</small></p>
-				<img className="img-fluid" src="img/EDP_Programme.png" />
+				
+				<img className="img-fluid" src="img/Awareness_Programme.png" />
 				<br />
 				<a href="#" className="btn btn-primary">
-                                    JUNE 9th
-				    <Timer endTime={moment("20180609", "YYYYMMDD").toISOString()} />
+                                    9th
+				    <Timer endTime={moment("20180709", "YYYYMMDD").toISOString()} />
                                 </a>
                             </div>
                         </div>
